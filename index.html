@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mehmet BAT eski işlerinden seçilmiş arayüz portfolyosu.">
+  <title>Mehmet BAT | Portfolyo</title>
+  <link rel="icon" href="mbat-favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-strong: #ffffff;
+      --ink: #14151d;
+      --muted: #667085;
+      --line: rgba(20, 21, 29, 0.12);
+      --line-strong: rgba(20, 21, 29, 0.24);
+      --accent: #ff5c35;
+      --accent-2: #006dff;
+      --accent-3: #159a73;
+      --shadow: 0 18px 50px rgba(20, 21, 29, 0.11);
+      --shadow-strong: 0 28px 80px rgba(20, 21, 29, 0.24);
+      --radius: 8px;
+      --max: 1360px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--bg); scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background:
+        linear-gradient(120deg, rgba(255, 92, 53, 0.11), transparent 26%),
+        linear-gradient(245deg, rgba(0, 109, 255, 0.12), transparent 31%),
+        linear-gradient(20deg, rgba(21, 154, 115, 0.08), transparent 38%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Outfit, Avenir Next, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    button,
+    input { font: inherit; letter-spacing: 0; }
+
+    button { color: inherit; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .page-shell {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 26px 0 56px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+      backdrop-filter: blur(16px);
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      display: grid;
+      min-width: 40px;
+      height: 34px;
+      padding: 0 9px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      box-shadow: 0 8px 24px rgba(20, 21, 29, 0.16);
+      color: #fff;
+      font-family: Anton, "Arial Narrow", Impact, sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .topbar__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .topbar__slogan {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .topbar__action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .topbar__action:hover,
+    .topbar__action:focus-visible {
+      border-color: var(--accent-2);
+      background: var(--accent-2);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .hero {
+      display: grid;
+      gap: 18px;
+      align-items: start;
+      padding: 30px 0 12px;
+    }
+
+    .hero-intro {
+      max-width: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero h1 {
+      max-width: none;
+      margin: 0;
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 1100px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .consulting-cta {
+      margin: 8px 0 28px;
+      padding: 22px 0 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .consulting-cta__head {
+      margin-bottom: 20px;
+    }
+
+    .consulting-cta__eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent-3);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .consulting-cta h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .consulting-cta__contact {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .consulting-cta__contact a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: rgba(20, 21, 29, 0.28);
+      text-underline-offset: 4px;
+      transition: color 160ms ease, text-decoration-color 160ms ease;
+    }
+
+    .consulting-cta__contact a:hover,
+    .consulting-cta__contact a:focus-visible {
+      color: var(--accent-2);
+      text-decoration-color: currentColor;
+      outline: none;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.6);
+      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(20, 21, 29, 0.08);
+    }
+
+    .service-card h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .service-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 14px;
+      text-decoration: none;
+      transition: gap 160ms ease, color 160ms ease;
+    }
+
+    .service-card__link:hover,
+    .service-card__link:focus-visible {
+      gap: 10px;
+      outline: none;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 62px;
+      z-index: 18;
+      display: grid;
+      grid-template-columns: minmax(220px, 360px) minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      margin: 14px 0 28px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 60px rgba(20, 21, 29, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .search-field {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .search-field:focus {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 4px rgba(0, 109, 255, 0.12);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .filter-chip {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 0 10px;
+      white-space: nowrap;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .filter-chip:hover,
+    .filter-chip.is-active {
+      border-color: rgba(255, 92, 53, 0.46);
+      background: rgba(255, 92, 53, 0.12);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .portfolio-card {
+      animation: cardIn 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: var(--delay);
+    }
+
+    .portfolio-card.is-hidden { display: none; }
+
+    .portfolio-card__button {
+      display: grid;
+      width: 100%;
+      min-height: 100%;
+      grid-template-rows: auto 1fr;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(145deg, rgba(255, 92, 53, 0.68), rgba(0, 109, 255, 0.28), rgba(21, 154, 115, 0.44)) border-box;
+      box-shadow: 0 14px 36px rgba(20, 21, 29, 0.10);
+      padding: 11px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .portfolio-card__button:hover,
+    .portfolio-card__button:focus-visible {
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(145deg, var(--accent), var(--accent-2), var(--accent-3)) border-box;
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    .portfolio-card__button:active { transform: translateY(-1px) scale(0.99); }
+
+    .portfolio-card__media {
+      position: relative;
+      display: grid;
+      min-height: 184px;
+      place-items: center;
+      border: 1px solid rgba(20, 21, 29, 0.15);
+      border-radius: 6px;
+      background:
+        radial-gradient(circle at 16% 16%, rgba(255, 92, 53, 0.13), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(0, 109, 255, 0.12), transparent 30%),
+        linear-gradient(135deg, #eef3fa, #f8fafc);
+      overflow: hidden;
+    }
+
+    .cover-image {
+      display: block;
+      width: 200px;
+      height: 134px;
+      object-fit: cover;
+      border: 1px solid rgba(20, 21, 29, 0.12);
+      box-shadow: 0 16px 36px rgba(20, 21, 29, 0.18);
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .cover-image--fallback {
+      width: 100%;
+      height: 100%;
+      box-shadow: none;
+    }
+
+    .portfolio-card__button:hover .cover-image {
+      transform: scale(1.035);
+      filter: saturate(1.04) contrast(1.02);
+    }
+
+    .open-cue {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      border-radius: 999px;
+      background: rgba(24, 24, 23, 0.84);
+      color: #ffffff;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      transform: translateY(0);
+      opacity: 0.96;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .portfolio-card__button:hover .open-cue,
+    .portfolio-card__button:focus-visible .open-cue {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-card__body {
+      display: grid;
+      gap: 4px;
+      padding: 13px 2px 2px;
+    }
+
+    .portfolio-card__brand {
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .portfolio-card__title {
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .portfolio-card__count {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .empty-results {
+      display: none;
+      margin: 28px 0 0;
+      border: 1px dashed var(--line-strong);
+      border-radius: var(--radius);
+      padding: 28px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.48);
+    }
+
+    .empty-results.is-visible { display: block; }
+
+    .project-dialog {
+      width: min(1180px, calc(100vw - 28px));
+      height: min(860px, calc(100dvh - 28px));
+      max-width: none;
+      max-height: none;
+      padding: 0;
+      border: 1px solid rgba(20, 21, 29, 0.2);
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink);
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+    }
+
+    .project-dialog::backdrop {
+      background: rgba(20, 21, 29, 0.52);
+      backdrop-filter: blur(12px);
+    }
+
+    .project-viewer {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      height: 100%;
+      min-height: 0;
+    }
+
+    .viewer-sidebar {
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      min-height: 0;
+      border-right: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(255, 92, 53, 0.09), transparent 48%),
+        linear-gradient(20deg, rgba(0, 109, 255, 0.08), transparent 54%),
+        #ffffff;
+      padding: 22px;
+    }
+
+    .viewer-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .viewer-brand {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .icon-button {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      cursor: pointer;
+      transition: transform 150ms ease, background 150ms ease;
+    }
+
+    .icon-button:hover,
+    .icon-button:focus-visible {
+      background: var(--ink);
+      color: var(--surface);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .viewer-title {
+      margin: 18px 0 12px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .viewer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .viewer-meta span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      padding: 6px 9px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .viewer-cover {
+      align-self: start;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #eef3fa;
+      padding: 12px;
+    }
+
+    .viewer-cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 18px 50px rgba(20, 21, 29, 0.16);
+    }
+
+    .viewer-hint {
+      align-self: end;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .viewer-main {
+      min-height: 0;
+      overflow: auto;
+      background: #f4f7fb;
+    }
+
+    .viewer-strip {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      padding: 12px 14px;
+      backdrop-filter: blur(12px);
+    }
+
+    .thumb-button {
+      flex: 0 0 auto;
+      width: 74px;
+      height: 52px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: #e7edf7;
+      padding: 3px;
+      cursor: pointer;
+    }
+
+    .thumb-button.is-active,
+    .thumb-button:hover,
+    .thumb-button:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .thumb-button img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .image-stage {
+      display: grid;
+      gap: 26px;
+      padding: 28px;
+    }
+
+    .stage-image {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .stage-image img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid rgba(20, 21, 29, 0.08);
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 18px 70px rgba(20, 21, 29, 0.12);
+    }
+
+    .stage-image figcaption {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .body-lock { overflow: hidden; }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .page-shell { width: min(100% - 28px, var(--max)); }
+      .toolbar { grid-template-columns: 1fr; }
+      .filter-row { justify-content: flex-start; }
+      .topbar { align-items: center; }
+      .service-cards { grid-template-columns: 1fr; }
+      .project-viewer { grid-template-columns: 1fr; }
+      .viewer-sidebar {
+        grid-template-rows: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .viewer-cover { display: none; }
+      .viewer-hint { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .page-shell { width: min(100% - 20px, var(--max)); padding-top: 12px; }
+      .topbar { align-items: center; }
+      .topbar__slogan { display: none; }
+      .hero { gap: 16px; padding-top: 18px; }
+      .eyebrow { margin-bottom: 12px; }
+      .hero h1 { font-size: 34px; line-height: 1; }
+      .hero-copy { margin-top: 12px; font-size: 14px; }
+      .consulting-cta { margin: 8px 0 20px; padding: 16px 0 20px; }
+      .consulting-cta h2 { font-size: 24px; }
+      .service-cards { gap: 12px; }
+      .filter-row {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+      .filter-chip { flex: 0 0 auto; white-space: nowrap; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card__media { min-height: 210px; }
+      .toolbar { top: 58px; }
+      .project-dialog { width: calc(100vw - 12px); height: calc(100dvh - 12px); }
+      .viewer-sidebar { padding: 16px; }
+      .image-stage { padding: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="page-shell" id="top">
+    <nav class="topbar" aria-label="Üst bilgi">
+      <div class="brand-lockup"><span class="brand-mark" aria-hidden="true">BAT</span><span>Mehmet BAT</span></div>
+      <div class="topbar__cta">
+        <span class="topbar__slogan">Markanı dijitalde görünür kılarım.</span>
+        <a class="topbar__action" href="https://futuristik.com.tr/iletisim" target="_blank" rel="noopener">Bizimle çalış</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <section class="hero-intro">
+        <p class="eyebrow">Portfolyo arşivi</p>
+        <p class="hero-copy">Buradaki seçki, öne çıkan markalarla üretilmiş dijital deneyimlerin yalnızca vitrin bölümünü gösterir. Portfolyoda yer almayan onlarca proje ve marka danışmanlığı; dijital görünürlük, dijital strateji, teknik altyapı ve sürdürülebilir dijital varlık yönetimi başlıklarında yıllardır verilen premium hizmetlerin parçasıdır.</p>
+      </section>
+    </header>
+
+    <section class="consulting-cta" aria-label="Dijital danışmanlık">
+      <header class="consulting-cta__head">
+        <p class="consulting-cta__eyebrow">Dijital danışmanlık</p>
+      </header>
+      <div class="service-cards" aria-label="Futuristik hizmet başlıkları">
+        <article class="service-card">
+          <h3>Dijital Varlık Kurulumu</h3>
+          <p>İşine uygun; hızlı, güvenli ve aranınca bulunan bir web sitesi kuruyorum. Mobil uyumlu altyapı, SEO ve analitik kurulumu, sonrasında sürekli bakım.</p>
+          <a class="service-card__link" href="https://futuristik.com.tr/dijital-varlik-kurulumu" target="_blank" rel="noopener">Nasıl çalışıyor<span aria-hidden="true">&rarr;</span></a>
+        </article>
+        <article class="service-card">
+          <h3>Dijital Görünürlük Analizi</h3>
+          <p>Siten doğru kişilere ulaşıyor mu? Teknik sağlık, SEO, yapay zekâ okunabilirliği ve kullanıcı deneyimini inceleyip önceliklendirilmiş bir yol haritası veriyorum.</p>
+          <a class="service-card__link" href="https://futuristik.com.tr/dijital-gorunurluk-analizi" target="_blank" rel="noopener">Raporu keşfet<span aria-hidden="true">&rarr;</span></a>
+        </article>
+      </div>
+      <p class="consulting-cta__contact">Bir projen mi var? <a href="mailto:mehmetbat@futuristik.com.tr">mehmetbat@futuristik.com.tr</a></p>
+    </section>
+
+    <section class="toolbar" aria-label="Portfolyo filtreleri">
+      <label>
+        <span class="sr-only">Portfolyoda ara</span>
+        <input class="search-field" id="searchInput" type="search" placeholder="İş ya da marka ara" autocomplete="off">
+      </label>
+      <div class="filter-row" aria-label="Marka filtresi">
+        <button class="filter-chip is-active" type="button" data-brand-filter="all">Tüm işler</button>
+        <button class="filter-chip" type="button" data-brand-filter="1V1Y">1V1Y</button>
+            <button class="filter-chip" type="button" data-brand-filter="ATLASJET">ATLASJET</button>
+            <button class="filter-chip" type="button" data-brand-filter="Dacia">Dacia</button>
+            <button class="filter-chip" type="button" data-brand-filter="Defakto">Defakto</button>
+            <button class="filter-chip" type="button" data-brand-filter="Digiturk">Digiturk</button>
+            <button class="filter-chip" type="button" data-brand-filter="IPEKYOL">IPEKYOL</button>
+            <button class="filter-chip" type="button" data-brand-filter="Koçtaş">Koçtaş</button>
+            <button class="filter-chip" type="button" data-brand-filter="Leona">Leona</button>
+            <button class="filter-chip" type="button" data-brand-filter="Machka">Machka</button>
+            <button class="filter-chip" type="button" data-brand-filter="MHL Trade">MHL Trade</button>
+            <button class="filter-chip" type="button" data-brand-filter="Pınar">Pınar</button>
+            <button class="filter-chip" type="button" data-brand-filter="Tolga Çevik">Tolga Çevik</button>
+            <button class="filter-chip" type="button" data-brand-filter="Turkcell Superonline">Turkcell Superonline</button>
+            <button class="filter-chip" type="button" data-brand-filter="Twist">Twist</button>
+            <button class="filter-chip" type="button" data-brand-filter="Vestel">Vestel</button>
+            <button class="filter-chip" type="button" data-brand-filter="Hukuk">Hukuk Projeleri</button>
+            <button class="filter-chip" type="button" data-brand-filter="Doğadayız">Doğadayız</button>
+            <button class="filter-chip" type="button" data-brand-filter="Nunchi Kids Club">Nunchi</button>
+            <button class="filter-chip" type="button" data-brand-filter="İnovair">İnovair</button>
+      </div>
+    </section>
+
+    <section class="portfolio-grid" id="portfolioGrid" aria-live="polite">
+
+        <article class="portfolio-card" data-brand="1V1Y" data-title="1v1y" style="--delay:0ms">
+          <button class="portfolio-card__button" type="button" data-open-project="1v1y" aria-label="1V1Y projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="1v1y/cover-1v1y.webp" alt="1V1Y kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">1V1Y</span>
+              <span class="portfolio-card__title">1V1Y</span>
+              <span class="portfolio-card__count">9 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Pınar" data-title="pınar light&#39;la hafifle" style="--delay:18ms">
+          <button class="portfolio-card__button" type="button" data-open-project="pinar-light-hafifle" aria-label="Pınar Light&#39;la Hafifle projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="pinar-light-hafifle/cover-pinar-hafifle.webp" alt="Pınar Light&#39;la Hafifle kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Pınar</span>
+              <span class="portfolio-card__title">Pınar Light&#39;la Hafifle</span>
+              <span class="portfolio-card__count">7 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Dacia" data-title="dacia - eğlence bursu" style="--delay:36ms">
+          <button class="portfolio-card__button" type="button" data-open-project="dacia-eglence-bursu" aria-label="Dacia - Eğlence Bursu projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="dacia-eglence-bursu/cover-dacia-debk.webp" alt="Dacia - Eğlence Bursu kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Dacia</span>
+              <span class="portfolio-card__title">Dacia - Eğlence Bursu</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Twist" data-title="twist / ajda pekkan" style="--delay:54ms">
+          <button class="portfolio-card__button" type="button" data-open-project="twist-ajda-pekkan" aria-label="Twist / Ajda Pekkan projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="twist-ajda-pekkan/cover-twist-ajda-pekkan.webp" alt="Twist / Ajda Pekkan kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Twist</span>
+              <span class="portfolio-card__title">Twist / Ajda Pekkan</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Tolga Çevik" data-title="tolga çevik" style="--delay:72ms">
+          <button class="portfolio-card__button" type="button" data-open-project="tolga-cevik" aria-label="Tolga Çevik projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="tolga-cevik/cover-tolga-cevik.webp" alt="Tolga Çevik kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Tolga Çevik</span>
+              <span class="portfolio-card__title">Tolga Çevik</span>
+              <span class="portfolio-card__count">7 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="ATLASJET" data-title="atlasjet&#39;le uçuyoruz!" style="--delay:90ms">
+          <button class="portfolio-card__button" type="button" data-open-project="atlasjetle-ucuyoruz" aria-label="Atlasjet&#39;le Uçuyoruz! projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="atlasjetle-ucuyoruz/cover-atlasjet.webp" alt="Atlasjet&#39;le Uçuyoruz! kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">ATLASJET</span>
+              <span class="portfolio-card__title">Atlasjet&#39;le Uçuyoruz!</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Pınar" data-title="pınar balık" style="--delay:108ms">
+          <button class="portfolio-card__button" type="button" data-open-project="pinar-balik" aria-label="Pınar Balık projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="pinar-balik/cover-pinar-balik.webp" alt="Pınar Balık kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Pınar</span>
+              <span class="portfolio-card__title">Pınar Balık</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="IPEKYOL" data-title="ıpekyol" style="--delay:126ms">
+          <button class="portfolio-card__button" type="button" data-open-project="ipekyol" aria-label="Ipekyol projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="ipekyol/cover-ipekyol.webp" alt="Ipekyol kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">IPEKYOL</span>
+              <span class="portfolio-card__title">Ipekyol</span>
+              <span class="portfolio-card__count">7 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Koçtaş" data-title="koçtaş fabel" style="--delay:144ms">
+          <button class="portfolio-card__button" type="button" data-open-project="koctas-fabel" aria-label="Koçtaş Fabel projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="koctas-fabel/cover-koctas-fabel.webp" alt="Koçtaş Fabel kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Koçtaş</span>
+              <span class="portfolio-card__title">Koçtaş Fabel</span>
+              <span class="portfolio-card__count">5 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Leona" data-title="leona blush party" style="--delay:162ms">
+          <button class="portfolio-card__button" type="button" data-open-project="leona-blush" aria-label="Leona Blush Party projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image cover-image--fallback" src="leona-blush/unlike_o_leona_blush.webp" alt="Leona Blush Party kapak görseli" width="1056" height="855" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Leona</span>
+              <span class="portfolio-card__title">Leona Blush Party</span>
+              <span class="portfolio-card__count">5 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Machka" data-title="machka" style="--delay:180ms">
+          <button class="portfolio-card__button" type="button" data-open-project="machka" aria-label="Machka projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image cover-image--fallback" src="machka/3_o%20(1)_machka.webp" alt="Machka kapak görseli" width="910" height="554" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Machka</span>
+              <span class="portfolio-card__title">Machka</span>
+              <span class="portfolio-card__count">5 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Leona" data-title="leona chill out" style="--delay:198ms">
+          <button class="portfolio-card__button" type="button" data-open-project="leona-chill-out" aria-label="Leona Chill Out projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="leona-chill-out/cover-leona-chill-out.webp" alt="Leona Chill Out kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Leona</span>
+              <span class="portfolio-card__title">Leona Chill Out</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Digiturk" data-title="digiturk dzdy" style="--delay:216ms">
+          <button class="portfolio-card__button" type="button" data-open-project="digiturk-dzdy" aria-label="Digiturk DZDY projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="digiturk-dzdy/cover-dzdy.webp" alt="Digiturk DZDY kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Digiturk</span>
+              <span class="portfolio-card__title">Digiturk DZDY</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="MHL Trade" data-title="mhl trade" style="--delay:234ms">
+          <button class="portfolio-card__button" type="button" data-open-project="mhl-trade" aria-label="MHL Trade projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="mhl-trade/cover-mhl-trade.webp" alt="MHL Trade kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">MHL Trade</span>
+              <span class="portfolio-card__title">MHL Trade</span>
+              <span class="portfolio-card__count">9 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Defakto" data-title="defakto sosyal reyon" style="--delay:252ms">
+          <button class="portfolio-card__button" type="button" data-open-project="defakto-sosyal-reyon" aria-label="Defakto Sosyal Reyon projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="defakto-sosyal-reyon/cover-defakto-sosyal.webp" alt="Defakto Sosyal Reyon kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Defakto</span>
+              <span class="portfolio-card__title">Defakto Sosyal Reyon</span>
+              <span class="portfolio-card__count">5 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Digiturk" data-title="digiturk festival yolu sundance" style="--delay:270ms">
+          <button class="portfolio-card__button" type="button" data-open-project="digiturk-festival-yolu-sundance" aria-label="Digiturk Festival Yolu Sundance projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="digiturk-festival-yolu-sundance/cover-digiturk-festival.webp" alt="Digiturk Festival Yolu Sundance kapak görseli" width="200" height="131" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Digiturk</span>
+              <span class="portfolio-card__title">Digiturk Festival Yolu Sundance</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Vestel" data-title="vestel u-color" style="--delay:288ms">
+          <button class="portfolio-card__button" type="button" data-open-project="vestel-u-color" aria-label="Vestel U-Color projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="vestel-u-color/cover-vestel-u-color.webp" alt="Vestel U-Color kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Vestel</span>
+              <span class="portfolio-card__title">Vestel U-Color</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Pınar" data-title="pınar çocuk" style="--delay:306ms">
+          <button class="portfolio-card__button" type="button" data-open-project="pinar-cocuk" aria-label="Pınar Çocuk projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="pinar-cocuk/cover-pinar-cocuk.webp" alt="Pınar Çocuk kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Pınar</span>
+              <span class="portfolio-card__title">Pınar Çocuk</span>
+              <span class="portfolio-card__count">8 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Pınar" data-title="pınar kido eğlence dünyası" style="--delay:324ms">
+          <button class="portfolio-card__button" type="button" data-open-project="pinar-kido-eglence-dunyasi" aria-label="Pınar Kido Eğlence Dünyası projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="pinar-kido-eglence-dunyasi/cover-pinar-kido-eglence.webp" alt="Pınar Kido Eğlence Dünyası kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Pınar</span>
+              <span class="portfolio-card__title">Pınar Kido Eğlence Dünyası</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Dacia" data-title="dacia - yeni sandero stepway" style="--delay:342ms">
+          <button class="portfolio-card__button" type="button" data-open-project="dacia-yeni-sandero" aria-label="Dacia - Yeni Sandero Stepway projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="dacia-yeni-sandero/cover-dacia-sandero.webp" alt="Dacia - Yeni Sandero Stepway kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Dacia</span>
+              <span class="portfolio-card__title">Dacia - Yeni Sandero Stepway</span>
+              <span class="portfolio-card__count">2 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Digiturk" data-title="digiturk bire bir" style="--delay:360ms">
+          <button class="portfolio-card__button" type="button" data-open-project="dijiturk-birebir" aria-label="Digiturk Bire Bir projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="dijiturk-birebir/cover-digiturk-birebir.webp" alt="Digiturk Bire Bir kapak görseli" width="72" height="72" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Digiturk</span>
+              <span class="portfolio-card__title">Digiturk Bire Bir</span>
+              <span class="portfolio-card__count">10 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Vestel" data-title="vestel ıksv" style="--delay:378ms">
+          <button class="portfolio-card__button" type="button" data-open-project="vestel-iksv" aria-label="Vestel IKSV projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="vestel-iksv/cover-vestel-iksv.webp" alt="Vestel IKSV kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Vestel</span>
+              <span class="portfolio-card__title">Vestel IKSV</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Turkcell Superonline" data-title="turkcell superonline kurumsal" style="--delay:396ms">
+          <button class="portfolio-card__button" type="button" data-open-project="turkcell-superonline-kurumsal" aria-label="Turkcell Superonline Kurumsal projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="turkcell-superonline-altin-orumcek/cover-turkcell-superonline-kurumsal.webp" alt="Turkcell Superonline Kurumsal kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Turkcell Superonline</span>
+              <span class="portfolio-card__title">Turkcell Superonline Kurumsal</span>
+              <span class="portfolio-card__count">7 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Vestel" data-title="vsoutlet" style="--delay:414ms">
+          <button class="portfolio-card__button" type="button" data-open-project="vsoutlet" aria-label="VsOutlet projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="vsoutlet/cover-vsoutlet.webp" alt="VsOutlet kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Vestel</span>
+              <span class="portfolio-card__title">VsOutlet</span>
+              <span class="portfolio-card__count">5 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Vestel" data-title="vestel küçük ev aletleri" style="--delay:432ms">
+          <button class="portfolio-card__button" type="button" data-open-project="vestel-kea" aria-label="Vestel Küçük Ev Aletleri projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="vestel-kea/cover-vestel-kucuk-ev-aletleri.webp" alt="Vestel Küçük Ev Aletleri kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Vestel</span>
+              <span class="portfolio-card__title">Vestel Küçük Ev Aletleri</span>
+              <span class="portfolio-card__count">2 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Pınar" data-title="pınar kalorimetrem" style="--delay:450ms">
+          <button class="portfolio-card__button" type="button" data-open-project="pinar-kalorimetre" aria-label="Pınar Kalorimetrem projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="pinar-kalorimetre/cover-pinar-kalorimetrem.webp" alt="Pınar Kalorimetrem kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Pınar</span>
+              <span class="portfolio-card__title">Pınar Kalorimetrem</span>
+              <span class="portfolio-card__count">7 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Vestel" data-title="vestel - terranova" style="--delay:468ms">
+          <button class="portfolio-card__button" type="button" data-open-project="vestel-terranova" aria-label="Vestel - Terranova projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="vestel-terranova/cover-vestel-terranova.webp" alt="Vestel - Terranova kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Vestel</span>
+              <span class="portfolio-card__title">Vestel - Terranova</span>
+              <span class="portfolio-card__count">5 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Digiturk" data-title="lig tv - efsane 11" style="--delay:486ms">
+          <button class="portfolio-card__button" type="button" data-open-project="dijiturk-efsane-11" aria-label="Lig TV - Efsane 11 projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="dijiturk-efsane-11/cover-efsane-11.webp" alt="Lig TV - Efsane 11 kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Digiturk</span>
+              <span class="portfolio-card__title">Lig TV - Efsane 11</span>
+              <span class="portfolio-card__count">9 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Digiturk" data-title="digiturk derbi ateşi" style="--delay:504ms">
+          <button class="portfolio-card__button" type="button" data-open-project="dijiturk-derbi-atesi" aria-label="Digiturk Derbi Ateşi projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="dijiturk-derbi-atesi/cover-digiturk-derbi-atesi.webp" alt="Digiturk Derbi Ateşi kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Digiturk</span>
+              <span class="portfolio-card__title">Digiturk Derbi Ateşi</span>
+              <span class="portfolio-card__count">8 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Turkcell Superonline" data-title="ödüllü dijital deneyim" style="--delay:522ms">
+          <button class="portfolio-card__button" type="button" data-open-project="turkcell-superonline-altin-orumcek" aria-label="Turkcell Superonline Ödüllü Dijital Deneyim projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="turkcell-superonline-altin-orumcek/cover-turkcell-superonline-altin-orumcek.webp" alt="Turkcell Superonline Ödüllü Dijital Deneyim kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Turkcell Superonline</span>
+              <span class="portfolio-card__title">Ödüllü Dijital Deneyim</span>
+              <span class="portfolio-card__count">6 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Digiturk" data-title="digiturk yardım merkezi" style="--delay:540ms">
+          <button class="portfolio-card__button" type="button" data-open-project="digiturk-yardim-merkezi" aria-label="Digiturk Yardım Merkezi projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="digiturk-yardim-merkezi/cover-digiturk-yardim-merkezi.webp" alt="Digiturk Yardım Merkezi kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Digiturk</span>
+              <span class="portfolio-card__title">Digiturk Yardım Merkezi</span>
+              <span class="portfolio-card__count">7 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Vestel" data-title="vestel.com.tr" style="--delay:558ms">
+          <button class="portfolio-card__button" type="button" data-open-project="vestel-com-tr" aria-label="Vestel.com.tr projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="vestel-com-tr/cover-vestel-com-tr.webp" alt="Vestel.com.tr kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Vestel</span>
+              <span class="portfolio-card__title">Vestel.com.tr</span>
+              <span class="portfolio-card__count">7 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Hukuk" data-title="elibol hukuk" style="--delay:0ms">
+          <button class="portfolio-card__button" type="button" data-open-project="elibol-hukuk" aria-label="Elibol Hukuk projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="elibol-hukuk/cover-elibol-hukuk.webp" alt="Elibol Hukuk kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Hukuk</span>
+              <span class="portfolio-card__title">Elibol Hukuk</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Hukuk" data-title="altınok hukuk" style="--delay:18ms">
+          <button class="portfolio-card__button" type="button" data-open-project="altinok-hukuk" aria-label="Altınok Hukuk projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="altinok-hukuk/cover-altinok-hukuk.webp" alt="Altınok Hukuk kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Hukuk</span>
+              <span class="portfolio-card__title">Altınok Hukuk</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Hukuk" data-title="kara hukuk" style="--delay:36ms">
+          <button class="portfolio-card__button" type="button" data-open-project="kara-hukuk" aria-label="Kara Hukuk projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="kara-hukuk/cover-kara-hukuk.webp" alt="Kara Hukuk kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Hukuk</span>
+              <span class="portfolio-card__title">Kara Hukuk</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Hukuk" data-title="av. ali haydar delibaş" style="--delay:54ms">
+          <button class="portfolio-card__button" type="button" data-open-project="av-ali-haydar-delibas" aria-label="Av. Ali Haydar Delibaş projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="av-ali-haydar-delibas/cover-alihaydar-delibas.webp" alt="Av. Ali Haydar Delibaş kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Hukuk</span>
+              <span class="portfolio-card__title">Av. Ali Haydar Delibaş</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Hukuk" data-title="çelik hukuk" style="--delay:72ms">
+          <button class="portfolio-card__button" type="button" data-open-project="celik-hukuk" aria-label="Çelik Hukuk projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="celik-hukuk/cover-celik-hukuk.webp" alt="Çelik Hukuk kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Hukuk</span>
+              <span class="portfolio-card__title">Çelik Hukuk</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Doğadayız" data-title="doğadayız" style="--delay:90ms">
+          <button class="portfolio-card__button" type="button" data-open-project="dogadayiz" aria-label="Doğadayız projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="dogadayiz/cover-dogadayiz.webp" alt="Doğadayız kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Doğadayız</span>
+              <span class="portfolio-card__title">Doğadayız</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="Nunchi Kids Club" data-title="nunchi kids club" style="--delay:108ms">
+          <button class="portfolio-card__button" type="button" data-open-project="nunchi-kids-club" aria-label="Nunchi Kids Club projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="nunchi-kids-club/cover-nunchi-kids-club.webp" alt="Nunchi Kids Club kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">Nunchi Kids Club</span>
+              <span class="portfolio-card__title">Nunchi Kids Club</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="portfolio-card" data-brand="İnovair" data-title="inovair iklimlendirme havalandırma" style="--delay:126ms">
+          <button class="portfolio-card__button" type="button" data-open-project="inovair" aria-label="İnovair projesini aç">
+            <span class="portfolio-card__media">
+              <img class="cover-image" src="inovair/cover-inovair.webp" alt="İnovair kapak görseli" width="200" height="134" loading="lazy">
+              <span class="open-cue">Projeyi aç</span>
+            </span>
+            <span class="portfolio-card__body">
+              <span class="portfolio-card__brand">İnovair</span>
+              <span class="portfolio-card__title">İnovair</span>
+              <span class="portfolio-card__count">1 ekran</span>
+            </span>
+          </button>
+        </article>
+    </section>
+    <p class="empty-results" id="emptyResults">Bu filtreyle eşleşen iş bulunamadı.</p>
+  </main>
+
+  <dialog class="project-dialog" id="projectDialog" aria-labelledby="viewerTitle">
+    <section class="project-viewer">
+      <aside class="viewer-sidebar">
+        <div class="viewer-topline">
+          <span class="viewer-brand" id="viewerBrand"></span>
+          <button class="icon-button" type="button" id="closeDialog" aria-label="Projeyi kapat">×</button>
+        </div>
+        <div>
+          <h2 class="viewer-title" id="viewerTitle"></h2>
+          <div class="viewer-meta" id="viewerMeta"></div>
+        </div>
+        <div class="viewer-cover" id="viewerCover"></div>
+        <p class="viewer-hint">Klavye: Esc kapatır. Görsellere yukarıdan hızlıca geçebilirsin.</p>
+      </aside>
+      <div class="viewer-main">
+        <div class="viewer-strip" id="viewerStrip" aria-label="Proje görsel kısayolları"></div>
+        <div class="image-stage" id="imageStage"></div>
+      </div>
+    </section>
+  </dialog>
+
+  <script type="application/json" id="portfolioData">[{"slug":"1v1y","title":"1V1Y","brand":"1V1Y","cover":{"name":"cover-1v1y.png","src":"1v1y/cover-1v1y.webp","relPath":"1v1y/cover-1v1y.webp","mtime":1781903116077.0596,"birthtime":1781903116075.949,"isCover":true,"width":200,"height":134},"images":[{"name":"1v1y_begen_aktif_V2_o.jpg","src":"1v1y/1v1y_begen_aktif_V2_o.webp","relPath":"1v1y/1v1y_begen_aktif_V2_o.webp","mtime":1781822728520.7283,"birthtime":1781822728519.4902,"isCover":false,"width":670,"height":636},{"name":"1v1y_begen_pasif_o.jpg","src":"1v1y/1v1y_begen_pasif_o.webp","relPath":"1v1y/1v1y_begen_pasif_o.webp","mtime":1781822732096.1199,"birthtime":1781822732094.8115,"isCover":false,"width":670,"height":636},{"name":"1v1y_begen_pasif_2_o.jpg","src":"1v1y/1v1y_begen_pasif_2_o.webp","relPath":"1v1y/1v1y_begen_pasif_2_o.webp","mtime":1781822735171.69,"birthtime":1781822735170.9595,"isCover":false,"width":670,"height":649},{"name":"1v1y_kayit_3_o.jpg","src":"1v1y/1v1y_kayit_3_o.webp","relPath":"1v1y/1v1y_kayit_3_o.webp","mtime":1781822738336.8967,"birthtime":1781822738334.7031,"isCover":false,"width":670,"height":649},{"name":"1v1y_odul_o.jpg","src":"1v1y/1v1y_odul_o.webp","relPath":"1v1y/1v1y_odul_o.webp","mtime":1781822741654.0842,"birthtime":1781822741653.2644,"isCover":false,"width":670,"height":649},{"name":"1v1y_soru_o.jpg","src":"1v1y/1v1y_soru_o.webp","relPath":"1v1y/1v1y_soru_o.webp","mtime":1781822745225.7424,"birthtime":1781822745224.6104,"isCover":false,"width":670,"height":649},{"name":"1v1y_soru_Cvp_o.jpg","src":"1v1y/1v1y_soru_Cvp_o.webp","relPath":"1v1y/1v1y_soru_Cvp_o.webp","mtime":1781822748413.9392,"birthtime":1781822748413.2698,"isCover":false,"width":670,"height":649},{"name":"1v1y_soru_degerlendirme_o.jpg","src":"1v1y/1v1y_soru_degerlendirme_o.webp","relPath":"1v1y/1v1y_soru_degerlendirme_o.webp","mtime":1781822751880.7888,"birthtime":1781822751880.5437,"isCover":false,"width":670,"height":649},{"name":"arkadasim_nedemis_popup_o.jpg","src":"1v1y/arkadasim_nedemis_popup_o.webp","relPath":"1v1y/arkadasim_nedemis_popup_o.webp","mtime":1781822755289.8467,"birthtime":1781822755289.2908,"isCover":false,"width":670,"height":649}]},{"slug":"pinar-light-hafifle","title":"Pınar Light'la Hafifle","brand":"Pınar","cover":{"name":"cover-pinar-hafifle.jpg","src":"pinar-light-hafifle/cover-pinar-hafifle.webp","relPath":"pinar-light-hafifle/cover-pinar-hafifle.webp","mtime":1781903126875.285,"birthtime":1781903126874.38,"isCover":true,"width":72,"height":72},"images":[{"name":"1_o (1)_pinar-light-hafifle.jpg","src":"pinar-light-hafifle/1_o%20(1)_pinar-light-hafifle.webp","relPath":"pinar-light-hafifle/1_o (1)_pinar-light-hafifle.jpg","mtime":1781822792849.6924,"birthtime":1781822792847.8901,"isCover":false,"width":1128,"height":912},{"name":"2_o (1)_pinar-light-hafifle.jpg","src":"pinar-light-hafifle/2_o%20(1)_pinar-light-hafifle.webp","relPath":"pinar-light-hafifle/2_o (1)_pinar-light-hafifle.jpg","mtime":1781822815727.6714,"birthtime":1781822815724.3926,"isCover":false,"width":1128,"height":912},{"name":"3_o (1)_pinar-light-hafifle.jpg","src":"pinar-light-hafifle/3_o%20(1)_pinar-light-hafifle.webp","relPath":"pinar-light-hafifle/3_o (1)_pinar-light-hafifle.jpg","mtime":1781822820557.2285,"birthtime":1781822820554.7046,"isCover":false,"width":1128,"height":912},{"name":"4_o (1)_pinar-light-hafifle.jpg","src":"pinar-light-hafifle/4_o%20(1)_pinar-light-hafifle.webp","relPath":"pinar-light-hafifle/4_o (1)_pinar-light-hafifle.jpg","mtime":1781822824428.7605,"birthtime":1781822824428.4175,"isCover":false,"width":1128,"height":912},{"name":"5_o (1)_pinar-light-hafifle.jpg","src":"pinar-light-hafifle/5_o%20(1)_pinar-light-hafifle.webp","relPath":"pinar-light-hafifle/5_o (1)_pinar-light-hafifle.jpg","mtime":1781822828007.7373,"birthtime":1781822828007.0637,"isCover":false,"width":1128,"height":912},{"name":"6_o (1)_pinar-light-hafifle.jpg","src":"pinar-light-hafifle/6_o%20(1)_pinar-light-hafifle.webp","relPath":"pinar-light-hafifle/6_o (1)_pinar-light-hafifle.jpg","mtime":1781822831633.8408,"birthtime":1781822831633.3013,"isCover":false,"width":1128,"height":912},{"name":"7_o (1)_pinar-light-hafifle.jpg","src":"pinar-light-hafifle/7_o%20(1)_pinar-light-hafifle.webp","relPath":"pinar-light-hafifle/7_o (1)_pinar-light-hafifle.jpg","mtime":1781822835267.7979,"birthtime":1781822835265.786,"isCover":false,"width":1128,"height":912}]},{"slug":"dacia-eglence-bursu","title":"Dacia - Eğlence Bursu","brand":"Dacia","cover":{"name":"cover-dacia-debk.jpg","src":"dacia-eglence-bursu/cover-dacia-debk.webp","relPath":"dacia-eglence-bursu/cover-dacia-debk.webp","mtime":1781903133554.67,"birthtime":1781903133553.9497,"isCover":true,"width":72,"height":72},"images":[{"name":"00001_Eglencebursu_FANPAGE_o.jpg","src":"dacia-eglence-bursu/00001_Eglencebursu_FANPAGE_o.webp","relPath":"dacia-eglence-bursu/00001_Eglencebursu_FANPAGE_o.webp","mtime":1781823154975.338,"birthtime":1781823154975.038,"isCover":false,"width":72,"height":72},{"name":"001_eglencebursu_Home_1_o.jpg","src":"dacia-eglence-bursu/001_eglencebursu_Home_1_o.webp","relPath":"dacia-eglence-bursu/001_eglencebursu_Home_1_o.webp","mtime":1781823158917.7922,"birthtime":1781823158915.94,"isCover":false,"width":1200,"height":1022},{"name":"003_eglencebursu_Kull.Bilgileri_o.jpg","src":"dacia-eglence-bursu/003_eglencebursu_Kull.Bilgileri_o.webp","relPath":"dacia-eglence-bursu/003_eglencebursu_Kull.Bilgileri_o.webp","mtime":1781823162229.6094,"birthtime":1781823162227.1672,"isCover":false,"width":1200,"height":1022},{"name":"005_eglencebursu_Hemen Basvur.psd _o.jpg","src":"dacia-eglence-bursu/005_eglencebursu_Hemen%20Basvur.psd%20_o.webp","relPath":"dacia-eglence-bursu/005_eglencebursu_Hemen Basvur.psd _o.jpg","mtime":1781823165579.2178,"birthtime":1781823165576.2546,"isCover":false,"width":1200,"height":1022},{"name":"016_Galeri_Enbeenilenler_o.jpg","src":"dacia-eglence-bursu/016_Galeri_Enbeenilenler_o.webp","relPath":"dacia-eglence-bursu/016_Galeri_Enbeenilenler_o.webp","mtime":1781823168810.1477,"birthtime":1781823168809.307,"isCover":false,"width":1200,"height":1022},{"name":"018_KAtilim Kosullari_o.jpg","src":"dacia-eglence-bursu/018_KAtilim%20Kosullari_o.webp","relPath":"dacia-eglence-bursu/018_KAtilim Kosullari_o.jpg","mtime":1781823171669.9731,"birthtime":1781823171668.887,"isCover":false,"width":1200,"height":1022}]},{"slug":"twist-ajda-pekkan","title":"Twist / Ajda Pekkan","brand":"Twist","cover":{"name":"cover-twist-ajda-pekkan.jpg","src":"twist-ajda-pekkan/cover-twist-ajda-pekkan.webp","relPath":"twist-ajda-pekkan/cover-twist-ajda-pekkan.webp","mtime":1781903147859.872,"birthtime":1781903147859.1667,"isCover":true,"width":72,"height":72},"images":[{"name":"00001_Twist_Fanpage_Like_o.jpg","src":"twist-ajda-pekkan/00001_Twist_Fanpage_Like_o.webp","relPath":"twist-ajda-pekkan/00001_Twist_Fanpage_Like_o.webp","mtime":1781822866551.6003,"birthtime":1781822866550.862,"isCover":false,"width":1021,"height":891},{"name":"02_Twist_facebook_app_select__o (1).jpg","src":"twist-ajda-pekkan/02_Twist_facebook_app_select__o%20(1).webp","relPath":"twist-ajda-pekkan/02_Twist_facebook_app_select__o (1).jpg","mtime":1781822875480.377,"birthtime":1781822875479.3362,"isCover":false,"width":1117,"height":904},{"name":"03_Twist_facebook_app_form_o (1).jpg","src":"twist-ajda-pekkan/03_Twist_facebook_app_form_o%20(1).webp","relPath":"twist-ajda-pekkan/03_Twist_facebook_app_form_o (1).jpg","mtime":1781822878425.7246,"birthtime":1781822878425.1963,"isCover":false,"width":1131,"height":901},{"name":"05_Twist_facebook_app_question_o.jpg","src":"twist-ajda-pekkan/05_Twist_facebook_app_question_o.webp","relPath":"twist-ajda-pekkan/05_Twist_facebook_app_question_o.webp","mtime":1781822881523.5583,"birthtime":1781822881521.0261,"isCover":false,"width":1149,"height":901},{"name":"06_Twist_facebook_app_answer_ok_o (1).jpg","src":"twist-ajda-pekkan/06_Twist_facebook_app_answer_ok_o%20(1).webp","relPath":"twist-ajda-pekkan/06_Twist_facebook_app_answer_ok_o (1).jpg","mtime":1781822886597.364,"birthtime":1781822886597.1248,"isCover":false,"width":1103,"height":901},{"name":"08_Twist_facebook_app_kullanim_Kpsd_o (1).jpg","src":"twist-ajda-pekkan/08_Twist_facebook_app_kullanim_Kpsd_o%20(1).webp","relPath":"twist-ajda-pekkan/08_Twist_facebook_app_kullanim_Kpsd_o (1).jpg","mtime":1781822889374.9902,"birthtime":1781822889373.6592,"isCover":false,"width":1115,"height":901}]},{"slug":"tolga-cevik","title":"Tolga Çevik","brand":"Tolga Çevik","cover":{"name":"cover-tolga-cevik.jpg","src":"tolga-cevik/cover-tolga-cevik.webp","relPath":"tolga-cevik/cover-tolga-cevik.webp","mtime":1781903156629.2842,"birthtime":1781903156628.5005,"isCover":true,"width":72,"height":72},"images":[{"name":"t_c_anasayfa_o.jpg","src":"tolga-cevik/t_c_anasayfa_o.webp","relPath":"tolga-cevik/t_c_anasayfa_o.webp","mtime":1781823187558.552,"birthtime":1781823187557.9512,"isCover":false,"width":989,"height":590},{"name":"t_c_biyografi_o.jpg","src":"tolga-cevik/t_c_biyografi_o.webp","relPath":"tolga-cevik/t_c_biyografi_o.webp","mtime":1781823191831.7668,"birthtime":1781823191831.3042,"isCover":false,"width":990,"height":590},{"name":"t_c_calismalar_o.jpg","src":"tolga-cevik/t_c_calismalar_o.webp","relPath":"tolga-cevik/t_c_calismalar_o.webp","mtime":1781823195527.5442,"birthtime":1781823195527.003,"isCover":false,"width":990,"height":590},{"name":"t_c_foto_album_o.jpg","src":"tolga-cevik/t_c_foto_album_o.webp","relPath":"tolga-cevik/t_c_foto_album_o.webp","mtime":1781823199706.623,"birthtime":1781823199705.551,"isCover":false,"width":990,"height":590},{"name":"t_c__tvprojeler_komedi_dukkani_o.jpg","src":"tolga-cevik/t_c__tvprojeler_komedi_dukkani_o.webp","relPath":"tolga-cevik/t_c__tvprojeler_komedi_dukkani_o.webp","mtime":1781823203038.4214,"birthtime":1781823203037.1125,"isCover":false,"width":990,"height":590},{"name":"t_c_sinemalar_organize_isler_o.jpg","src":"tolga-cevik/t_c_sinemalar_organize_isler_o.webp","relPath":"tolga-cevik/t_c_sinemalar_organize_isler_o.webp","mtime":1781823206200.283,"birthtime":1781823206199.1694,"isCover":false,"width":990,"height":590},{"name":"t_c_vizontele_o.jpg","src":"tolga-cevik/t_c_vizontele_o.webp","relPath":"tolga-cevik/t_c_vizontele_o.webp","mtime":1781823209433.893,"birthtime":1781823209433.5925,"isCover":false,"width":990,"height":590}]},{"slug":"atlasjetle-ucuyoruz","title":"Atlasjet'le Uçuyoruz!","brand":"ATLASJET","cover":{"name":"cover-atlasjet.jpg","src":"atlasjetle-ucuyoruz/cover-atlasjet.webp","relPath":"atlasjetle-ucuyoruz/cover-atlasjet.webp","mtime":1781903164055.2805,"birthtime":1781903164054.5757,"isCover":true,"width":72,"height":72},"images":[{"name":"atlasjet_like_page_o.jpg","src":"atlasjetle-ucuyoruz/atlasjet_like_page_o.webp","relPath":"atlasjetle-ucuyoruz/atlasjet_like_page_o.webp","mtime":1781823262780.7703,"birthtime":1781823262779.7603,"isCover":false,"width":1191,"height":807},{"name":"main_3_o.jpg","src":"atlasjetle-ucuyoruz/main_3_o.webp","relPath":"atlasjetle-ucuyoruz/main_3_o.webp","mtime":1781823267674.5337,"birthtime":1781823267674.1992,"isCover":false,"width":1130,"height":1095},{"name":"sehir_o.jpg","src":"atlasjetle-ucuyoruz/sehir_o.webp","relPath":"atlasjetle-ucuyoruz/sehir_o.webp","mtime":1781823271391.674,"birthtime":1781823271390.7493,"isCover":false,"width":1130,"height":806},{"name":"slogan_o.jpg","src":"atlasjetle-ucuyoruz/slogan_o.webp","relPath":"atlasjetle-ucuyoruz/slogan_o.webp","mtime":1781823274823.6594,"birthtime":1781823274823.1077,"isCover":false,"width":1130,"height":786},{"name":"ark_sec_1_o.jpg","src":"atlasjetle-ucuyoruz/ark_sec_1_o.webp","relPath":"atlasjetle-ucuyoruz/ark_sec_1_o.webp","mtime":1781823278035.4473,"birthtime":1781823278034.0623,"isCover":false,"width":1130,"height":984},{"name":"kosullar_2_o.jpg","src":"atlasjetle-ucuyoruz/kosullar_2_o.webp","relPath":"atlasjetle-ucuyoruz/kosullar_2_o.webp","mtime":1781823282395.7876,"birthtime":1781823282395.4207,"isCover":false,"width":1130,"height":842}]},{"slug":"pinar-balik","title":"Pınar Balık","brand":"Pınar","cover":{"name":"cover-pinar-balik.jpg","src":"pinar-balik/cover-pinar-balik.webp","relPath":"pinar-balik/cover-pinar-balik.webp","mtime":1781903179249.8486,"birthtime":1781903179249.2598,"isCover":true,"width":72,"height":72},"images":[{"name":"anasayfa_fishfinger_r1_c1_o.jpg","src":"pinar-balik/anasayfa_fishfinger_r1_c1_o.webp","relPath":"pinar-balik/anasayfa_fishfinger_r1_c1_o.webp","mtime":1781823305049.882,"birthtime":1781823305049.0962,"isCover":false,"width":72,"height":72},{"name":"balik_kofte_r1_c1_o.png","src":"pinar-balik/balik_kofte_r1_c1_o.webp","relPath":"pinar-balik/balik_kofte_r1_c1_o.webp","mtime":1781823309115.2546,"birthtime":1781823309114.9531,"isCover":false,"width":1280,"height":950},{"name":"balik_saglik_r1_c1_o.png","src":"pinar-balik/balik_saglik_r1_c1_o.webp","relPath":"pinar-balik/balik_saglik_r1_c1_o.webp","mtime":1781823312456.2368,"birthtime":1781823312455.804,"isCover":false,"width":1280,"height":950},{"name":"fish2_r1_c1_o.png","src":"pinar-balik/fish2_r1_c1_o.webp","relPath":"pinar-balik/fish2_r1_c1_o.webp","mtime":1781823315400.531,"birthtime":1781823315399.934,"isCover":false,"width":1280,"height":950},{"name":"mezgit_fileto_r1_c1_o.jpg","src":"pinar-balik/mezgit_fileto_r1_c1_o.webp","relPath":"pinar-balik/mezgit_fileto_r1_c1_o.webp","mtime":1781823318619.5632,"birthtime":1781823318618.761,"isCover":false,"width":1280,"height":950},{"name":"urunlerimiz_r1_c1_o.png","src":"pinar-balik/urunlerimiz_r1_c1_o.webp","relPath":"pinar-balik/urunlerimiz_r1_c1_o.webp","mtime":1781823321853.7952,"birthtime":1781823321852.5269,"isCover":false,"width":1280,"height":950}]},{"slug":"ipekyol","title":"Ipekyol","brand":"IPEKYOL","cover":{"name":"cover-ipekyol.jpg","src":"ipekyol/cover-ipekyol.webp","relPath":"ipekyol/cover-ipekyol.webp","mtime":1781903186983.7346,"birthtime":1781903186982.9258,"isCover":true,"width":72,"height":72},"images":[{"name":"1_o (1)_ipekyol.jpg","src":"ipekyol/1_o%20(1)_ipekyol.webp","relPath":"ipekyol/1_o (1)_ipekyol.jpg","mtime":1781820797244.0925,"birthtime":1781820797243.7974,"isCover":false,"width":670,"height":376},{"name":"2_o (1)_ipekyol.jpg","src":"ipekyol/2_o%20(1)_ipekyol.webp","relPath":"ipekyol/2_o (1)_ipekyol.jpg","mtime":1781820807018.1018,"birthtime":1781820807017.8743,"isCover":false,"width":670,"height":376},{"name":"3_o (1)_ipekyol.jpg","src":"ipekyol/3_o%20(1)_ipekyol.webp","relPath":"ipekyol/3_o (1)_ipekyol.jpg","mtime":1781820810843.3508,"birthtime":1781820810843.0596,"isCover":false,"width":670,"height":376},{"name":"4_o (1)_ipekyol.jpg","src":"ipekyol/4_o%20(1)_ipekyol.webp","relPath":"ipekyol/4_o (1)_ipekyol.jpg","mtime":1781820814782.9314,"birthtime":1781820814781.9854,"isCover":false,"width":670,"height":376},{"name":"5_o (1)_ipekyol.jpg","src":"ipekyol/5_o%20(1)_ipekyol.webp","relPath":"ipekyol/5_o (1)_ipekyol.jpg","mtime":1781820818321.6965,"birthtime":1781820818321.006,"isCover":false,"width":670,"height":376},{"name":"6_o (1)_ipekyol.jpg","src":"ipekyol/6_o%20(1)_ipekyol.webp","relPath":"ipekyol/6_o (1)_ipekyol.jpg","mtime":1781820822251.0972,"birthtime":1781820822250.3967,"isCover":false,"width":670,"height":376},{"name":"7_o (1)_ipekyol.jpg","src":"ipekyol/7_o%20(1)_ipekyol.webp","relPath":"ipekyol/7_o (1)_ipekyol.jpg","mtime":1781820826688.4783,"birthtime":1781820826688.0012,"isCover":false,"width":670,"height":376}]},{"slug":"koctas-fabel","title":"Koçtaş Fabel","brand":"Koçtaş","cover":{"name":"cover-koctas-fabel.jpg","src":"koctas-fabel/cover-koctas-fabel.webp","relPath":"koctas-fabel/cover-koctas-fabel.webp","isCover":true,"width":200,"height":134},"images":[{"name":"1_koctas_fabel.jpg","src":"koctas-fabel/1_koctas_fabel.webp","relPath":"koctas-fabel/1_koctas_fabel.webp","mtime":1781820846072.6045,"birthtime":1781820846071.2944,"isCover":false,"width":72,"height":72},{"name":"2 (1)_koctas_fabel.jpg","src":"koctas-fabel/2%20(1)_koctas_fabel.webp","relPath":"koctas-fabel/2 (1)_koctas_fabel.jpg","mtime":1781820858731.7327,"birthtime":1781820858731.3206,"isCover":false,"width":72,"height":72},{"name":"3 (1)_koctas_fabel.jpg","src":"koctas-fabel/3%20(1)_koctas_fabel.webp","relPath":"koctas-fabel/3 (1)_koctas_fabel.jpg","mtime":1781820863054.3281,"birthtime":1781820863053.5383,"isCover":false,"width":72,"height":72},{"name":"4 (1)_koctas_fabel.jpg","src":"koctas-fabel/4%20(1)_koctas_fabel.webp","relPath":"koctas-fabel/4 (1)_koctas_fabel.jpg","mtime":1781820867680.4146,"birthtime":1781820867679.3293,"isCover":false,"width":72,"height":72},{"name":"5 (1)_koctas_fabel.jpg","src":"koctas-fabel/5%20(1)_koctas_fabel.webp","relPath":"koctas-fabel/5 (1)_koctas_fabel.jpg","mtime":1781820872535.532,"birthtime":1781820872535.265,"isCover":false,"width":72,"height":72}]},{"slug":"leona-blush","title":"Leona Blush Party","brand":"Leona","cover":{"name":"unlike_o_leona_blush.jpg","src":"leona-blush/unlike_o_leona_blush.webp","relPath":"leona-blush/unlike_o_leona_blush.webp","mtime":1781823355826.9487,"birthtime":1781823355824.938,"isCover":false,"width":1056,"height":855,"isFallbackCover":true},"images":[{"name":"unlike_o_leona_blush.jpg","src":"leona-blush/unlike_o_leona_blush.webp","relPath":"leona-blush/unlike_o_leona_blush.webp","mtime":1781823355826.9487,"birthtime":1781823355824.938,"isCover":false,"width":1056,"height":855},{"name":"leona_blush_facebook_app_sorular_o.jpg","src":"leona-blush/leona_blush_facebook_app_sorular_o.webp","relPath":"leona-blush/leona_blush_facebook_app_sorular_o.webp","mtime":1781823373875.8013,"birthtime":1781823373874.4302,"isCover":false,"width":1200,"height":1022},{"name":"leona_facebook_app_answer_ok_o.jpg","src":"leona-blush/leona_facebook_app_answer_ok_o.webp","relPath":"leona-blush/leona_facebook_app_answer_ok_o.webp","mtime":1781823376705.086,"birthtime":1781823376704.6768,"isCover":false,"width":1200,"height":1022},{"name":"leona_facebook_app_form_o.jpg","src":"leona-blush/leona_facebook_app_form_o.webp","relPath":"leona-blush/leona_facebook_app_form_o.webp","mtime":1781823380086.1528,"birthtime":1781823380084.692,"isCover":false,"width":1200,"height":1022},{"name":"leona_facebook_app_kullanim_kpsd_o.jpg","src":"leona-blush/leona_facebook_app_kullanim_kpsd_o.webp","relPath":"leona-blush/leona_facebook_app_kullanim_kpsd_o.webp","mtime":1781823383054.4219,"birthtime":1781823383054.1184,"isCover":false,"width":1200,"height":1022}]},{"slug":"machka","title":"Machka","brand":"Machka","cover":{"name":"3_o (1)_machka.jpg","src":"machka/3_o%20(1)_machka.webp","relPath":"machka/3_o (1)_machka.jpg","mtime":1781820945110.9146,"birthtime":1781820945110.486,"isCover":false,"width":910,"height":554,"isFallbackCover":true},"images":[{"name":"3_o (1)_machka.jpg","src":"machka/3_o%20(1)_machka.webp","relPath":"machka/3_o (1)_machka.jpg","mtime":1781820945110.9146,"birthtime":1781820945110.486,"isCover":false,"width":910,"height":554},{"name":"4_o (1)_machka.jpg","src":"machka/4_o%20(1)_machka.webp","relPath":"machka/4_o (1)_machka.jpg","mtime":1781820954877.4802,"birthtime":1781820954877.1968,"isCover":false,"width":875,"height":562},{"name":"1_o (1)_machka.jpg","src":"machka/1_o%20(1)_machka.webp","relPath":"machka/1_o (1)_machka.jpg","mtime":1781820959068.8472,"birthtime":1781820959068.5754,"isCover":false,"width":875,"height":562},{"name":"3_3_o_machka.jpg","src":"machka/3_3_o_machka.webp","relPath":"machka/3_3_o_machka.webp","mtime":1781820962979.3474,"birthtime":1781820962979.1057,"isCover":false,"width":72,"height":72},{"name":"5_o (1)_machka.jpg","src":"machka/5_o%20(1)_machka.webp","relPath":"machka/5_o (1)_machka.jpg","mtime":1781820966944.769,"birthtime":1781820966944.2495,"isCover":false,"width":72,"height":72}]},{"slug":"leona-chill-out","title":"Leona Chill Out","brand":"Leona","cover":{"name":"cover-leona-chill-out.jpg","src":"leona-chill-out/cover-leona-chill-out.webp","relPath":"leona-chill-out/cover-leona-chill-out.webp","mtime":1781911216930.2986,"birthtime":1781911215019.1074,"isCover":true,"width":200,"height":134},"images":[{"name":"00001_Twist_Fanpage_Like.jpg","src":"leona-chill-out/00001_Twist_Fanpage_Like.webp","relPath":"leona-chill-out/00001_Twist_Fanpage_Like.webp","mtime":1781820911397.837,"birthtime":1781820911397.4504,"isCover":false,"width":493,"height":817},{"name":"02_Twist_facebook_app_select__o.jpg","src":"leona-chill-out/02_Twist_facebook_app_select__o.webp","relPath":"leona-chill-out/02_Twist_facebook_app_select__o.webp","mtime":1781820916304.5469,"birthtime":1781820916303.9377,"isCover":false,"width":1200,"height":1022},{"name":"03_Twist_facebook_app_form_o.jpg","src":"leona-chill-out/03_Twist_facebook_app_form_o.webp","relPath":"leona-chill-out/03_Twist_facebook_app_form_o.webp","mtime":1781820919550.7188,"birthtime":1781820919548.8535,"isCover":false,"width":1200,"height":1022},{"name":"05_Twist_facebook_app_form_ok_o.jpg","src":"leona-chill-out/05_Twist_facebook_app_form_ok_o.webp","relPath":"leona-chill-out/05_Twist_facebook_app_form_ok_o.webp","mtime":1781820923468.8345,"birthtime":1781820923466.385,"isCover":false,"width":1200,"height":1022},{"name":"06_Twist_facebook_app_answer_ok_o.jpg","src":"leona-chill-out/06_Twist_facebook_app_answer_ok_o.webp","relPath":"leona-chill-out/06_Twist_facebook_app_answer_ok_o.webp","mtime":1781820927203.6753,"birthtime":1781820927202.1055,"isCover":false,"width":1200,"height":1022},{"name":"08_Twist_facebook_app_kullanim_Kpsd_o.jpg","src":"leona-chill-out/08_Twist_facebook_app_kullanim_Kpsd_o.webp","relPath":"leona-chill-out/08_Twist_facebook_app_kullanim_Kpsd_o.webp","mtime":1781820930140.8413,"birthtime":1781820930139.5156,"isCover":false,"width":1200,"height":1022}]},{"slug":"digiturk-dzdy","title":"Digiturk DZDY","brand":"Digiturk","cover":{"name":"cover-dzdy.png","src":"digiturk-dzdy/cover-dzdy.webp","relPath":"digiturk-dzdy/cover-dzdy.webp","mtime":1781902154945.7693,"birthtime":1781902154944.917,"isCover":true,"width":200,"height":134},"images":[{"name":"Digiturk_o.png","src":"digiturk-dzdy/Digiturk_o.webp","relPath":"digiturk-dzdy/Digiturk_o.webp","mtime":1781821074535.8257,"birthtime":1781821074534.1958,"isCover":false,"width":1029,"height":4096}]},{"slug":"mhl-trade","title":"MHL Trade","brand":"MHL Trade","cover":{"name":"cover-mhl-trade.jpg","src":"mhl-trade/cover-mhl-trade.webp","relPath":"mhl-trade/cover-mhl-trade.webp","mtime":1781902403778.7922,"birthtime":1781902403778.2754,"isCover":true,"width":72,"height":72},"images":[{"name":"1_640_mhl_trade.jpg","src":"mhl-trade/1_640_mhl_trade.webp","relPath":"mhl-trade/1_640_mhl_trade.webp","mtime":1781821007279.8396,"birthtime":1781821007279.515,"isCover":false,"width":72,"height":72},{"name":"2_640_mhl_trade.jpg","src":"mhl-trade/2_640_mhl_trade.webp","relPath":"mhl-trade/2_640_mhl_trade.webp","mtime":1781821018510.7712,"birthtime":1781821018510.2734,"isCover":false,"width":72,"height":72},{"name":"3_640_mhl_trade.jpg","src":"mhl-trade/3_640_mhl_trade.webp","relPath":"mhl-trade/3_640_mhl_trade.webp","mtime":1781821022581.8606,"birthtime":1781821022581.5022,"isCover":false,"width":72,"height":72},{"name":"4_640_mhl_trade.jpg","src":"mhl-trade/4_640_mhl_trade.webp","relPath":"mhl-trade/4_640_mhl_trade.webp","mtime":1781821027081.853,"birthtime":1781821027081.4822,"isCover":false,"width":72,"height":72},{"name":"5_640_mhl_trade.jpg","src":"mhl-trade/5_640_mhl_trade.webp","relPath":"mhl-trade/5_640_mhl_trade.webp","mtime":1781821030805.5344,"birthtime":1781821030805.227,"isCover":false,"width":72,"height":72},{"name":"6_640_mhl_trade.jpg","src":"mhl-trade/6_640_mhl_trade.webp","relPath":"mhl-trade/6_640_mhl_trade.webp","mtime":1781821036578.4656,"birthtime":1781821036578.2334,"isCover":false,"width":72,"height":72},{"name":"7_640_mhl_trade.jpg","src":"mhl-trade/7_640_mhl_trade.webp","relPath":"mhl-trade/7_640_mhl_trade.webp","mtime":1781821041000.5388,"birthtime":1781821041000.0298,"isCover":false,"width":72,"height":72},{"name":"8_640_mhl_trade.jpg","src":"mhl-trade/8_640_mhl_trade.webp","relPath":"mhl-trade/8_640_mhl_trade.webp","mtime":1781821045632.09,"birthtime":1781821045631.853,"isCover":false,"width":72,"height":72},{"name":"9_640_mhl_trade.jpg","src":"mhl-trade/9_640_mhl_trade.webp","relPath":"mhl-trade/9_640_mhl_trade.webp","mtime":1781821050183.6797,"birthtime":1781821050183.4236,"isCover":false,"width":72,"height":72}]},{"slug":"defakto-sosyal-reyon","title":"Defakto Sosyal Reyon","brand":"Defakto","cover":{"name":"cover-defakto-sosyal.png","src":"defakto-sosyal-reyon/cover-defakto-sosyal.webp","relPath":"defakto-sosyal-reyon/cover-defakto-sosyal.webp","mtime":1781902415944.112,"birthtime":1781902415939.8665,"isCover":true,"width":200,"height":134},"images":[{"name":"1_master_o_defacto.jpg","src":"defakto-sosyal-reyon/1_master_o_defacto.webp","relPath":"defakto-sosyal-reyon/1_master_o_defacto.webp","mtime":1781821122775.5469,"birthtime":1781821122775.2751,"isCover":false,"width":810,"height":812},{"name":"2_urunsec_o_defacto.jpg","src":"defakto-sosyal-reyon/2_urunsec_o_defacto.webp","relPath":"defakto-sosyal-reyon/2_urunsec_o_defacto.webp","mtime":1781821137239.688,"birthtime":1781821137239.3936,"isCover":false,"width":810,"height":812},{"name":"3_urunsecili_o_defacto.jpg","src":"defakto-sosyal-reyon/3_urunsecili_o_defacto.webp","relPath":"defakto-sosyal-reyon/3_urunsecili_o_defacto.webp","mtime":1781821141670.5662,"birthtime":1781821141669.692,"isCover":false,"width":810,"height":812},{"name":"4_urundetay_o_defacto.jpg","src":"defakto-sosyal-reyon/4_urundetay_o_defacto.webp","relPath":"defakto-sosyal-reyon/4_urundetay_o_defacto.webp","mtime":1781821146807.1953,"birthtime":1781821146806.5437,"isCover":false,"width":810,"height":812},{"name":"5_galeri_o_defacto.jpg","src":"defakto-sosyal-reyon/5_galeri_o_defacto.webp","relPath":"defakto-sosyal-reyon/5_galeri_o_defacto.webp","mtime":1781821151721.598,"birthtime":1781821151720.5732,"isCover":false,"width":810,"height":812}]},{"slug":"digiturk-festival-yolu-sundance","title":"Digiturk Festival Yolu Sundance","brand":"Digiturk","cover":{"name":"cover-digiturk-festival.png","src":"digiturk-festival-yolu-sundance/cover-digiturk-festival.webp","relPath":"digiturk-festival-yolu-sundance/cover-digiturk-festival.webp","mtime":1781902430591.491,"birthtime":1781902430590.7878,"isCover":true,"width":200,"height":131},"images":[{"name":"1_o_digiturk-festival-yolu.png","src":"digiturk-festival-yolu-sundance/1_o_digiturk-festival-yolu.webp","relPath":"digiturk-festival-yolu-sundance/1_o_digiturk-festival-yolu.webp","mtime":1781821180784.2979,"birthtime":1781821180782.312,"isCover":false,"width":670,"height":685},{"name":"2_o_digiturk-festival-yolu.png","src":"digiturk-festival-yolu-sundance/2_o_digiturk-festival-yolu.webp","relPath":"digiturk-festival-yolu-sundance/2_o_digiturk-festival-yolu.webp","mtime":1781821207571.1584,"birthtime":1781821207570.8318,"isCover":false,"width":670,"height":685},{"name":"3_o_digiturk-festival-yolu.png","src":"digiturk-festival-yolu-sundance/3_o_digiturk-festival-yolu.webp","relPath":"digiturk-festival-yolu-sundance/3_o_digiturk-festival-yolu.webp","mtime":1781821212734.9453,"birthtime":1781821212733.1035,"isCover":false,"width":670,"height":685},{"name":"4_o_digiturk-festival-yolu.png","src":"digiturk-festival-yolu-sundance/4_o_digiturk-festival-yolu.webp","relPath":"digiturk-festival-yolu-sundance/4_o_digiturk-festival-yolu.webp","mtime":1781821216908.151,"birthtime":1781821216907.0386,"isCover":false,"width":670,"height":685},{"name":"5_o_digiturk-festival-yolu.png","src":"digiturk-festival-yolu-sundance/5_o_digiturk-festival-yolu.webp","relPath":"digiturk-festival-yolu-sundance/5_o_digiturk-festival-yolu.webp","mtime":1781821221271.5713,"birthtime":1781821221271.2085,"isCover":false,"width":670,"height":685},{"name":"6_o_digiturk-festival-yolu.png","src":"digiturk-festival-yolu-sundance/6_o_digiturk-festival-yolu.webp","relPath":"digiturk-festival-yolu-sundance/6_o_digiturk-festival-yolu.webp","mtime":1781821225171.3374,"birthtime":1781821225170.7693,"isCover":false,"width":670,"height":685}]},{"slug":"vestel-u-color","title":"Vestel U-Color","brand":"Vestel","cover":{"name":"cover-vestel-u-color.png","src":"vestel-u-color/cover-vestel-u-color.webp","relPath":"vestel-u-color/cover-vestel-u-color.webp","mtime":1781902442113.8765,"birthtime":1781902442112.5752,"isCover":true,"width":200,"height":134},"images":[{"name":"ucl_1_1_800_o_vestelucolor.jpg","src":"vestel-u-color/ucl_1_1_800_o_vestelucolor.webp","relPath":"vestel-u-color/ucl_1_1_800_o_vestelucolor.webp","mtime":1781821259553.1863,"birthtime":1781821259539.0242,"isCover":false,"width":72,"height":72},{"name":"ucl_2_800_o_vestelucolor.jpg","src":"vestel-u-color/ucl_2_800_o_vestelucolor.webp","relPath":"vestel-u-color/ucl_2_800_o_vestelucolor.webp","mtime":1781821270928.1702,"birthtime":1781821270917.6646,"isCover":false,"width":72,"height":72},{"name":"ucl_3_800_o_vestelucolor.jpg","src":"vestel-u-color/ucl_3_800_o_vestelucolor.webp","relPath":"vestel-u-color/ucl_3_800_o_vestelucolor.webp","mtime":1781821274965.0928,"birthtime":1781821274954.7678,"isCover":false,"width":72,"height":72},{"name":"ucl_4_800_o_vestelucolor.jpg","src":"vestel-u-color/ucl_4_800_o_vestelucolor.webp","relPath":"vestel-u-color/ucl_4_800_o_vestelucolor.webp","mtime":1781821279008.413,"birthtime":1781821278994.589,"isCover":false,"width":72,"height":72},{"name":"ucl_5_800_o_vestelucolor.jpg","src":"vestel-u-color/ucl_5_800_o_vestelucolor.webp","relPath":"vestel-u-color/ucl_5_800_o_vestelucolor.webp","mtime":1781821282701.3025,"birthtime":1781821282692.3728,"isCover":false,"width":72,"height":72},{"name":"ucl_6_800_o_vestelucolor.jpg","src":"vestel-u-color/ucl_6_800_o_vestelucolor.webp","relPath":"vestel-u-color/ucl_6_800_o_vestelucolor.webp","mtime":1781821286671.5664,"birthtime":1781821286660.9478,"isCover":false,"width":72,"height":72}]},{"slug":"pinar-cocuk","title":"Pınar Çocuk","brand":"Pınar","cover":{"name":"cover-pinar-cocuk.png","src":"pinar-cocuk/cover-pinar-cocuk.webp","relPath":"pinar-cocuk/cover-pinar-cocuk.webp","mtime":1781902453998.1165,"birthtime":1781902453996.8733,"isCover":true,"width":200,"height":134},"images":[{"name":"1_o_pinar-cocuk.png","src":"pinar-cocuk/1_o_pinar-cocuk.webp","relPath":"pinar-cocuk/1_o_pinar-cocuk.webp","mtime":1781821316401.8303,"birthtime":1781821316401.1638,"isCover":false,"width":670,"height":1039},{"name":"2_o_pinar-cocuk.png","src":"pinar-cocuk/2_o_pinar-cocuk.webp","relPath":"pinar-cocuk/2_o_pinar-cocuk.webp","mtime":1781821326411.4324,"birthtime":1781821326410.6243,"isCover":false,"width":670,"height":1151},{"name":"3_o_pinar-cocuk.png","src":"pinar-cocuk/3_o_pinar-cocuk.webp","relPath":"pinar-cocuk/3_o_pinar-cocuk.webp","mtime":1781821331169.6675,"birthtime":1781821331169.43,"isCover":false,"width":670,"height":749},{"name":"4_o_pinar-cocuk.png","src":"pinar-cocuk/4_o_pinar-cocuk.webp","relPath":"pinar-cocuk/4_o_pinar-cocuk.webp","mtime":1781821336106.5728,"birthtime":1781821336105.589,"isCover":false,"width":670,"height":831},{"name":"5_o_pinar-cocuk.png","src":"pinar-cocuk/5_o_pinar-cocuk.webp","relPath":"pinar-cocuk/5_o_pinar-cocuk.webp","mtime":1781821340633.7134,"birthtime":1781821340633.4976,"isCover":false,"width":670,"height":847},{"name":"6_o_pinar-cocuk.png","src":"pinar-cocuk/6_o_pinar-cocuk.webp","relPath":"pinar-cocuk/6_o_pinar-cocuk.webp","mtime":1781821346386.8303,"birthtime":1781821346386.4673,"isCover":false,"width":670,"height":837},{"name":"7_o_pinar-cocuk.png","src":"pinar-cocuk/7_o_pinar-cocuk.webp","relPath":"pinar-cocuk/7_o_pinar-cocuk.webp","mtime":1781821350894.6162,"birthtime":1781821350894.0967,"isCover":false,"width":670,"height":776},{"name":"8_o_pinar-cocuk.png","src":"pinar-cocuk/8_o_pinar-cocuk.webp","relPath":"pinar-cocuk/8_o_pinar-cocuk.webp","mtime":1781821354940.6414,"birthtime":1781821354940.322,"isCover":false,"width":670,"height":776}]},{"slug":"pinar-kido-eglence-dunyasi","title":"Pınar Kido Eğlence Dünyası","brand":"Pınar","cover":{"name":"cover-pinar-kido-eglence.png","src":"pinar-kido-eglence-dunyasi/cover-pinar-kido-eglence.webp","relPath":"pinar-kido-eglence-dunyasi/cover-pinar-kido-eglence.webp","mtime":1781902464663.998,"birthtime":1781902464660.9287,"isCover":true,"width":200,"height":134},"images":[{"name":"1_kido_master6_r1_c4_o_pinar-kido.jpg","src":"pinar-kido-eglence-dunyasi/1_kido_master6_r1_c4_o_pinar-kido.webp","relPath":"pinar-kido-eglence-dunyasi/1_kido_master6_r1_c4_o_pinar-kido.webp","mtime":1781821412215.3286,"birthtime":1781821412202.9521,"isCover":false,"width":670,"height":396},{"name":"3_kayit_r1_c2_o_pinar-kido.jpg","src":"pinar-kido-eglence-dunyasi/3_kayit_r1_c2_o_pinar-kido.webp","relPath":"pinar-kido-eglence-dunyasi/3_kayit_r1_c2_o_pinar-kido.webp","mtime":1781821428032.0945,"birthtime":1781821428024.1582,"isCover":false,"width":670,"height":396},{"name":"11_puandurumu_r1_c2_o_pinar-kido.jpg","src":"pinar-kido-eglence-dunyasi/11_puandurumu_r1_c2_o_pinar-kido.webp","relPath":"pinar-kido-eglence-dunyasi/11_puandurumu_r1_c2_o_pinar-kido.webp","mtime":1781821433538.4873,"birthtime":1781821433529.5334,"isCover":false,"width":670,"height":396},{"name":"13_haritaekrani_r1_c2_o_pinar-kido.jpg","src":"pinar-kido-eglence-dunyasi/13_haritaekrani_r1_c2_o_pinar-kido.webp","relPath":"pinar-kido-eglence-dunyasi/13_haritaekrani_r1_c2_o_pinar-kido.webp","mtime":1781821437450.501,"birthtime":1781821437441.2095,"isCover":false,"width":670,"height":396},{"name":"14_o_pinar-kido.png","src":"pinar-kido-eglence-dunyasi/14_o_pinar-kido.webp","relPath":"pinar-kido-eglence-dunyasi/14_o_pinar-kido.webp","mtime":1781821442552.1138,"birthtime":1781821442240.8125,"isCover":false,"width":670,"height":610},{"name":"15_o_pinar-kido.png","src":"pinar-kido-eglence-dunyasi/15_o_pinar-kido.webp","relPath":"pinar-kido-eglence-dunyasi/15_o_pinar-kido.webp","mtime":1781821447988.621,"birthtime":1781821447968.5469,"isCover":false,"width":670,"height":610}]},{"slug":"dacia-yeni-sandero","title":"Dacia - Yeni Sandero Stepway","brand":"Dacia","cover":{"name":"cover-dacia-sandero.jpg","src":"dacia-yeni-sandero/cover-dacia-sandero.webp","relPath":"dacia-yeni-sandero/cover-dacia-sandero.webp","mtime":1781902521765.9668,"birthtime":1781902521764.754,"isCover":true,"width":200,"height":134},"images":[{"name":"dacia-sandero.jpg","src":"dacia-yeni-sandero/dacia-sandero.webp","relPath":"dacia-yeni-sandero/dacia-sandero.webp","mtime":1781820364330.815,"birthtime":1781820364330.414,"isCover":false,"width":72,"height":72},{"name":"dacia-yeni-sandero.jpg","src":"dacia-yeni-sandero/dacia-yeni-sandero.webp","relPath":"dacia-yeni-sandero/dacia-yeni-sandero.webp","mtime":1781900102347.7576,"birthtime":1781900101981.0498,"isCover":false,"width":72,"height":72}]},{"slug":"dijiturk-birebir","title":"Digiturk Bire Bir","brand":"Digiturk","cover":{"name":"cover-digiturk-birebir.jpg","src":"dijiturk-birebir/cover-digiturk-birebir.webp","relPath":"dijiturk-birebir/cover-digiturk-birebir.webp","mtime":1781902530739.5815,"birthtime":1781902530738.5706,"isCover":true,"width":72,"height":72},"images":[{"name":"1_o.jpg","src":"dijiturk-birebir/1_o.webp","relPath":"dijiturk-birebir/1_o.webp","mtime":1781820413699.6768,"birthtime":1781820413699.2976,"isCover":false,"width":670,"height":600},{"name":"2_o.jpg","src":"dijiturk-birebir/2_o.webp","relPath":"dijiturk-birebir/2_o.webp","mtime":1781820418640.702,"birthtime":1781820418640.3955,"isCover":false,"width":670,"height":600},{"name":"3_o.jpg","src":"dijiturk-birebir/3_o.webp","relPath":"dijiturk-birebir/3_o.webp","mtime":1781820422377.285,"birthtime":1781820422376.4216,"isCover":false,"width":670,"height":600},{"name":"4_o.jpg","src":"dijiturk-birebir/4_o.webp","relPath":"dijiturk-birebir/4_o.webp","mtime":1781820425921.9636,"birthtime":1781820425921.6301,"isCover":false,"width":670,"height":600},{"name":"5_o.jpg","src":"dijiturk-birebir/5_o.webp","relPath":"dijiturk-birebir/5_o.webp","mtime":1781820429307.9402,"birthtime":1781820429307.5017,"isCover":false,"width":670,"height":600},{"name":"6_o.jpg","src":"dijiturk-birebir/6_o.webp","relPath":"dijiturk-birebir/6_o.webp","mtime":1781820432441.7087,"birthtime":1781820432441.3074,"isCover":false,"width":670,"height":600},{"name":"7_o.jpg","src":"dijiturk-birebir/7_o.webp","relPath":"dijiturk-birebir/7_o.webp","mtime":1781820436153.791,"birthtime":1781820436153.5293,"isCover":false,"width":670,"height":600},{"name":"8_o.jpg","src":"dijiturk-birebir/8_o.webp","relPath":"dijiturk-birebir/8_o.webp","mtime":1781820439438.735,"birthtime":1781820439437.844,"isCover":false,"width":670,"height":600},{"name":"10_o.jpg","src":"dijiturk-birebir/10_o.webp","relPath":"dijiturk-birebir/10_o.webp","mtime":1781820443162.6409,"birthtime":1781820443162.2246,"isCover":false,"width":670,"height":600},{"name":"11_o.jpg","src":"dijiturk-birebir/11_o.webp","relPath":"dijiturk-birebir/11_o.webp","mtime":1781820446778.1733,"birthtime":1781820446777.6785,"isCover":false,"width":670,"height":600}]},{"slug":"vestel-iksv","title":"Vestel IKSV","brand":"Vestel","cover":{"name":"cover-vestel-iksv.jpg","src":"vestel-iksv/cover-vestel-iksv.webp","relPath":"vestel-iksv/cover-vestel-iksv.webp","mtime":1781902548170.8782,"birthtime":1781902548170.0188,"isCover":true,"width":200,"height":134},"images":[{"name":"1_vestelbienal_uygulama_hicoynamamis_master_o.jpg","src":"vestel-iksv/1_vestelbienal_uygulama_hicoynamamis_master_o.webp","relPath":"vestel-iksv/1_vestelbienal_uygulama_hicoynamamis_master_o.webp","mtime":1781821505923.3645,"birthtime":1781821505922.428,"isCover":false,"width":670,"height":862},{"name":"2_vestelbienal_kayitformu_hata_o.jpg","src":"vestel-iksv/2_vestelbienal_kayitformu_hata_o.webp","relPath":"vestel-iksv/2_vestelbienal_kayitformu_hata_o.webp","mtime":1781821515372.728,"birthtime":1781821515372.0122,"isCover":false,"width":670,"height":862},{"name":"2_vestelbienal_soruekrani_o.jpg","src":"vestel-iksv/2_vestelbienal_soruekrani_o.webp","relPath":"vestel-iksv/2_vestelbienal_soruekrani_o.webp","mtime":1781821520308.2878,"birthtime":1781821520307.6526,"isCover":false,"width":670,"height":862},{"name":"3-1_o.jpg","src":"vestel-iksv/3-1_o.webp","relPath":"vestel-iksv/3-1_o.webp","mtime":1781821523874.6243,"birthtime":1781821523873.1292,"isCover":false,"width":670,"height":862},{"name":"4_vestelbienal_oyunsonu_dogrucevapyok_ilk5tedegil_o.jpg","src":"vestel-iksv/4_vestelbienal_oyunsonu_dogrucevapyok_ilk5tedegil_o.webp","relPath":"vestel-iksv/4_vestelbienal_oyunsonu_dogrucevapyok_ilk5tedegil_o.webp","mtime":1781821527459.538,"birthtime":1781821527458.1655,"isCover":false,"width":670,"height":862},{"name":"5-2_o.jpg","src":"vestel-iksv/5-2_o.webp","relPath":"vestel-iksv/5-2_o.webp","mtime":1781821531407.379,"birthtime":1781821531406.077,"isCover":false,"width":670,"height":862}]},{"slug":"turkcell-superonline-kurumsal","title":"Turkcell Superonline Kurumsal","brand":"Turkcell Superonline","cover":{"name":"cover-turkcell-superonline-kurumsal.png","src":"turkcell-superonline-altin-orumcek/cover-turkcell-superonline-kurumsal.webp","relPath":"turkcell-superonline-altin-orumcek/cover-turkcell-superonline-kurumsal.webp","mtime":1781902857399.425,"birthtime":1781902857366.051,"isCover":true,"width":200,"height":134,"isBorrowedCover":true},"images":[{"name":"1_o_turkcell.jpg","src":"turkcell-superonline-kurumsal/1_o_turkcell.webp","relPath":"turkcell-superonline-kurumsal/1_o_turkcell.webp","mtime":1781820477549.5781,"birthtime":1781820477549.1638,"isCover":false,"width":670,"height":639},{"name":"2_o turkcell.jpg","src":"turkcell-superonline-kurumsal/2_o%20turkcell.webp","relPath":"turkcell-superonline-kurumsal/2_o turkcell.jpg","mtime":1781820489593.3032,"birthtime":1781820489591.8564,"isCover":false,"width":670,"height":868},{"name":"6_oturkcell.jpg","src":"turkcell-superonline-kurumsal/6_oturkcell.webp","relPath":"turkcell-superonline-kurumsal/6_oturkcell.webp","mtime":1781820495928.3171,"birthtime":1781820495928.0222,"isCover":false,"width":670,"height":778},{"name":"9_o_turkcell.jpg","src":"turkcell-superonline-kurumsal/9_o_turkcell.webp","relPath":"turkcell-superonline-kurumsal/9_o_turkcell.webp","mtime":1781820502067.7253,"birthtime":1781820502066.7205,"isCover":false,"width":670,"height":731},{"name":"10_o_turkcell.jpg","src":"turkcell-superonline-kurumsal/10_o_turkcell.webp","relPath":"turkcell-superonline-kurumsal/10_o_turkcell.webp","mtime":1781820508096.805,"birthtime":1781820508096.4717,"isCover":false,"width":670,"height":812},{"name":"12_o_turkcell.jpg","src":"turkcell-superonline-kurumsal/12_o_turkcell.webp","relPath":"turkcell-superonline-kurumsal/12_o_turkcell.webp","mtime":1781820516660.4155,"birthtime":1781820516659.7842,"isCover":false,"width":670,"height":859},{"name":"13_o_turkcell.jpg","src":"turkcell-superonline-kurumsal/13_o_turkcell.webp","relPath":"turkcell-superonline-kurumsal/13_o_turkcell.webp","mtime":1781820522273.1934,"birthtime":1781820522272.935,"isCover":false,"width":670,"height":783}]},{"slug":"vsoutlet","title":"VsOutlet","brand":"Vestel","cover":{"name":"cover-vsoutlet.png","src":"vsoutlet/cover-vsoutlet.webp","relPath":"vsoutlet/cover-vsoutlet.webp","mtime":1781902884953.496,"birthtime":1781902884952.9158,"isCover":true,"width":200,"height":134},"images":[{"name":"1_r1_c1_vs_outlet.png","src":"vsoutlet/1_r1_c1_vs_outlet.webp","relPath":"vsoutlet/1_r1_c1_vs_outlet.webp","mtime":1781820642585.3271,"birthtime":1781820642585.0566,"isCover":false,"width":362,"height":437},{"name":"2_r1_c1_vs_outlet.png","src":"vsoutlet/2_r1_c1_vs_outlet.webp","relPath":"vsoutlet/2_r1_c1_vs_outlet.webp","mtime":1781820653610.4805,"birthtime":1781820653609.9062,"isCover":false,"width":375,"height":437},{"name":"3_r1_c1_vs_outlet.png","src":"vsoutlet/3_r1_c1_vs_outlet.webp","relPath":"vsoutlet/3_r1_c1_vs_outlet.webp","mtime":1781820657852.4595,"birthtime":1781820657852.2285,"isCover":false,"width":375,"height":437},{"name":"4_r1_c1_vs_outlet.png","src":"vsoutlet/4_r1_c1_vs_outlet.webp","relPath":"vsoutlet/4_r1_c1_vs_outlet.webp","mtime":1781820661725.0342,"birthtime":1781820661724.725,"isCover":false,"width":499,"height":437},{"name":"5_r1_c1_o_vs_outlet.png","src":"vsoutlet/5_r1_c1_o_vs_outlet.webp","relPath":"vsoutlet/5_r1_c1_o_vs_outlet.webp","mtime":1781820666188.6116,"birthtime":1781820666187.343,"isCover":false,"width":670,"height":437}]},{"slug":"vestel-kea","title":"Vestel Küçük Ev Aletleri","brand":"Vestel","cover":{"name":"cover-vestel-kucuk-ev-aletleri.jpg","src":"vestel-kea/cover-vestel-kucuk-ev-aletleri.webp","relPath":"vestel-kea/cover-vestel-kucuk-ev-aletleri.webp","mtime":1781902892740.61,"birthtime":1781902892740.2207,"isCover":true,"width":200,"height":134},"images":[{"name":"vestel_kea_1_o.jpg","src":"vestel-kea/vestel_kea_1_o.webp","relPath":"vestel-kea/vestel_kea_1_o.webp","mtime":1781822066322.0112,"birthtime":1781822066319.885,"isCover":false,"width":72,"height":72},{"name":"vestel_kea_2a_o.png","src":"vestel-kea/vestel_kea_2a_o.webp","relPath":"vestel-kea/vestel_kea_2a_o.webp","mtime":1781822086747.3647,"birthtime":1781822086745.0405,"isCover":false,"width":1560,"height":965}]},{"slug":"pinar-kalorimetre","title":"Pınar Kalorimetrem","brand":"Pınar","cover":{"name":"cover-pinar-kalorimetrem.png","src":"pinar-kalorimetre/cover-pinar-kalorimetrem.webp","relPath":"pinar-kalorimetre/cover-pinar-kalorimetrem.webp","mtime":1781902904698.6245,"birthtime":1781902904663.365,"isCover":true,"width":200,"height":134},"images":[{"name":"1_o_pinar-kalorimetre.jpg","src":"pinar-kalorimetre/1_o_pinar-kalorimetre.webp","relPath":"pinar-kalorimetre/1_o_pinar-kalorimetre.webp","mtime":1781822401828.8281,"birthtime":1781822401827.7104,"isCover":false,"width":900,"height":719},{"name":"1_1_o_pinar-kalorimetre.jpg","src":"pinar-kalorimetre/1_1_o_pinar-kalorimetre.webp","relPath":"pinar-kalorimetre/1_1_o_pinar-kalorimetre.webp","mtime":1781822414510.637,"birthtime":1781822414508.882,"isCover":false,"width":900,"height":719},{"name":"2_o _pinar-kalorimetre.jpg","src":"pinar-kalorimetre/2_o%20_pinar-kalorimetre.webp","relPath":"pinar-kalorimetre/2_o _pinar-kalorimetre.jpg","mtime":1781822418761.3289,"birthtime":1781822418759.6223,"isCover":false,"width":900,"height":719},{"name":"3_o_pinar-kalorimetre.jpg","src":"pinar-kalorimetre/3_o_pinar-kalorimetre.webp","relPath":"pinar-kalorimetre/3_o_pinar-kalorimetre.webp","mtime":1781822425136.2737,"birthtime":1781822425134.2856,"isCover":false,"width":900,"height":719},{"name":"4_o_pinar-kalorimetre.jpg","src":"pinar-kalorimetre/4_o_pinar-kalorimetre.webp","relPath":"pinar-kalorimetre/4_o_pinar-kalorimetre.webp","mtime":1781822430601.304,"birthtime":1781822430599.45,"isCover":false,"width":900,"height":719},{"name":"5_o_pinar-kalorimetre.jpg","src":"pinar-kalorimetre/5_o_pinar-kalorimetre.webp","relPath":"pinar-kalorimetre/5_o_pinar-kalorimetre.webp","mtime":1781822435642.5374,"birthtime":1781822435640.5288,"isCover":false,"width":900,"height":719},{"name":"6_o_pinar-kalorimetre.jpg","src":"pinar-kalorimetre/6_o_pinar-kalorimetre.webp","relPath":"pinar-kalorimetre/6_o_pinar-kalorimetre.webp","mtime":1781822440651.04,"birthtime":1781822440649.1582,"isCover":false,"width":900,"height":719}]},{"slug":"vestel-terranova","title":"Vestel - Terranova","brand":"Vestel","cover":{"name":"cover-vestel-terranova.png","src":"vestel-terranova/cover-vestel-terranova.webp","relPath":"vestel-terranova/cover-vestel-terranova.webp","mtime":1781902919157.9902,"birthtime":1781902919130.337,"isCover":true,"width":200,"height":134},"images":[{"name":"1_o_vestel-terranova.jpg","src":"vestel-terranova/1_o_vestel-terranova.webp","relPath":"vestel-terranova/1_o_vestel-terranova.webp","mtime":1781822460851.3682,"birthtime":1781822460838.8984,"isCover":false,"width":72,"height":72},{"name":"2_o_vestel-terranova.jpg","src":"vestel-terranova/2_o_vestel-terranova.webp","relPath":"vestel-terranova/2_o_vestel-terranova.webp","mtime":1781822484209.8027,"birthtime":1781822484201.5808,"isCover":false,"width":72,"height":72},{"name":"3_o_vestel-terranova.jpg","src":"vestel-terranova/3_o_vestel-terranova.webp","relPath":"vestel-terranova/3_o_vestel-terranova.webp","mtime":1781822492472.961,"birthtime":1781822492462.554,"isCover":false,"width":72,"height":72},{"name":"4_o _vestel-terranova.jpg","src":"vestel-terranova/4_o%20_vestel-terranova.webp","relPath":"vestel-terranova/4_o _vestel-terranova.jpg","mtime":1781822497841.724,"birthtime":1781822497831.4192,"isCover":false,"width":72,"height":72},{"name":"5_o_vestel-terranova.jpg","src":"vestel-terranova/5_o_vestel-terranova.webp","relPath":"vestel-terranova/5_o_vestel-terranova.webp","mtime":1781822504142.1326,"birthtime":1781822504135.6099,"isCover":false,"width":72,"height":72}]},{"slug":"dijiturk-efsane-11","title":"Lig TV - Efsane 11","brand":"Digiturk","cover":{"name":"cover-efsane-11.png","src":"dijiturk-efsane-11/cover-efsane-11.webp","relPath":"dijiturk-efsane-11/cover-efsane-11.webp","mtime":1781902929802.9778,"birthtime":1781902929781.7798,"isCover":true,"width":200,"height":134},"images":[{"name":"ilk_o-efsane-11.jpg","src":"dijiturk-efsane-11/ilk_o-efsane-11.webp","relPath":"dijiturk-efsane-11/ilk_o-efsane-11.webp","mtime":1781822531288.9968,"birthtime":1781822531288.6624,"isCover":false,"width":72,"height":72},{"name":"1_o-efsane-11.jpg","src":"dijiturk-efsane-11/1_o-efsane-11.webp","relPath":"dijiturk-efsane-11/1_o-efsane-11.webp","mtime":1781822549668.9492,"birthtime":1781822549668.5637,"isCover":false,"width":72,"height":72},{"name":"2_o-efsane-11.jpg","src":"dijiturk-efsane-11/2_o-efsane-11.webp","relPath":"dijiturk-efsane-11/2_o-efsane-11.webp","mtime":1781822556609.2346,"birthtime":1781822556608.7363,"isCover":false,"width":72,"height":72},{"name":"3_o-efsane-11.jpg","src":"dijiturk-efsane-11/3_o-efsane-11.webp","relPath":"dijiturk-efsane-11/3_o-efsane-11.webp","mtime":1781822561916.9736,"birthtime":1781822561916.7153,"isCover":false,"width":72,"height":72},{"name":"4_o-efsane-11.jpg","src":"dijiturk-efsane-11/4_o-efsane-11.webp","relPath":"dijiturk-efsane-11/4_o-efsane-11.webp","mtime":1781822566911.6663,"birthtime":1781822566910.0298,"isCover":false,"width":72,"height":72},{"name":"0005_Form_o-efsane-11.jpg","src":"dijiturk-efsane-11/0005_Form_o-efsane-11.webp","relPath":"dijiturk-efsane-11/0005_Form_o-efsane-11.webp","mtime":1781822571606.5537,"birthtime":1781822571603.9414,"isCover":false,"width":1905,"height":1055},{"name":"5_o (1)-efsane-11.jpg","src":"dijiturk-efsane-11/5_o%20(1)-efsane-11.webp","relPath":"dijiturk-efsane-11/5_o (1)-efsane-11.jpg","mtime":1781822575924.6445,"birthtime":1781822575924.1118,"isCover":false,"width":72,"height":72},{"name":"6_o (1)-efsane-11.jpg","src":"dijiturk-efsane-11/6_o%20(1)-efsane-11.webp","relPath":"dijiturk-efsane-11/6_o (1)-efsane-11.jpg","mtime":1781822580227.1104,"birthtime":1781822580226.7322,"isCover":false,"width":72,"height":72},{"name":"7_o (1)-efsane-11.jpg","src":"dijiturk-efsane-11/7_o%20(1)-efsane-11.webp","relPath":"dijiturk-efsane-11/7_o (1)-efsane-11.jpg","mtime":1781822584691.9685,"birthtime":1781822584691.7195,"isCover":false,"width":72,"height":72}]},{"slug":"dijiturk-derbi-atesi","title":"Digiturk Derbi Ateşi","brand":"Digiturk","cover":{"name":"cover-digiturk-derbi-atesi.png","src":"dijiturk-derbi-atesi/cover-digiturk-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/cover-digiturk-derbi-atesi.webp","mtime":1781902938387.0503,"birthtime":1781902938386.1199,"isCover":true,"width":200,"height":134},"images":[{"name":"1- index_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/1-%20index_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/1- index_o-derbi-atesi.jpg","mtime":1781822611445.5134,"birthtime":1781822611444.484,"isCover":false,"width":670,"height":520},{"name":"4-aUyeKayit_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/4-aUyeKayit_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/4-aUyeKayit_o-derbi-atesi.webp","mtime":1781822621901.1943,"birthtime":1781822621900.9302,"isCover":false,"width":670,"height":520},{"name":"4-TakimSec_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/4-TakimSec_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/4-TakimSec_o-derbi-atesi.webp","mtime":1781822625606.9033,"birthtime":1781822625606.6392,"isCover":false,"width":670,"height":520},{"name":"5-Hazirim-Heyecanl_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/5-Hazirim-Heyecanl_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/5-Hazirim-Heyecanl_o-derbi-atesi.webp","mtime":1781822629897.778,"birthtime":1781822629897.3242,"isCover":false,"width":670,"height":520},{"name":"6-HemenBaslaSayac_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/6-HemenBaslaSayac_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/6-HemenBaslaSayac_o-derbi-atesi.webp","mtime":1781822634914.43,"birthtime":1781822634913.4844,"isCover":false,"width":670,"height":520},{"name":"7-SoruCevap2_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/7-SoruCevap2_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/7-SoruCevap2_o-derbi-atesi.webp","mtime":1781822640001.2998,"birthtime":1781822640000.9998,"isCover":false,"width":670,"height":520},{"name":"8-DusukPuan2_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/8-DusukPuan2_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/8-DusukPuan2_o-derbi-atesi.webp","mtime":1781822644339.774,"birthtime":1781822644338.5999,"isCover":false,"width":670,"height":520},{"name":"9-PuanDurumu_o-derbi-atesi.jpg","src":"dijiturk-derbi-atesi/9-PuanDurumu_o-derbi-atesi.webp","relPath":"dijiturk-derbi-atesi/9-PuanDurumu_o-derbi-atesi.webp","mtime":1781822648505.5159,"birthtime":1781822648505.0317,"isCover":false,"width":670,"height":520}]},{"slug":"turkcell-superonline-altin-orumcek","title":"Ödüllü Dijital Deneyim","brand":"Turkcell Superonline","cover":{"name":"cover-turkcell-superonline-altin-orumcek.png","src":"turkcell-superonline-altin-orumcek/cover-turkcell-superonline-altin-orumcek.webp","relPath":"turkcell-superonline-altin-orumcek/cover-turkcell-superonline-altin-orumcek.webp","mtime":1781902952031.1555,"birthtime":1781902952029.5154,"isCover":true,"width":200,"height":134},"images":[{"name":"2 (1)_turkcell_superonline.jpg","src":"turkcell-superonline-altin-orumcek/2%20(1)_turkcell_superonline.webp","relPath":"turkcell-superonline-altin-orumcek/2 (1)_turkcell_superonline.jpg","mtime":1781820713845.0464,"birthtime":1781820713844.493,"isCover":false,"width":72,"height":72},{"name":"3 _turkcell_superonline.jpg","src":"turkcell-superonline-altin-orumcek/3%20_turkcell_superonline.webp","relPath":"turkcell-superonline-altin-orumcek/3 _turkcell_superonline.jpg","mtime":1781820735543.1177,"birthtime":1781820735542.5815,"isCover":false,"width":72,"height":72},{"name":"4 _turkcell_superonline.jpg","src":"turkcell-superonline-altin-orumcek/4%20_turkcell_superonline.webp","relPath":"turkcell-superonline-altin-orumcek/4 _turkcell_superonline.jpg","mtime":1781820744822.4517,"birthtime":1781820744822.1453,"isCover":false,"width":72,"height":72},{"name":"6_turkcell_superonline.jpg","src":"turkcell-superonline-altin-orumcek/6_turkcell_superonline.webp","relPath":"turkcell-superonline-altin-orumcek/6_turkcell_superonline.webp","mtime":1781820751547.097,"birthtime":1781820751546.6782,"isCover":false,"width":72,"height":72},{"name":"8_turkcell_superonline.jpg","src":"turkcell-superonline-altin-orumcek/8_turkcell_superonline.webp","relPath":"turkcell-superonline-altin-orumcek/8_turkcell_superonline.webp","mtime":1781820756642.5823,"birthtime":1781820756642.28,"isCover":false,"width":72,"height":72},{"name":"9_turkcell_superonline.jpg","src":"turkcell-superonline-altin-orumcek/9_turkcell_superonline.webp","relPath":"turkcell-superonline-altin-orumcek/9_turkcell_superonline.webp","mtime":1781820761405.357,"birthtime":1781820761404.934,"isCover":false,"width":72,"height":72}]},{"slug":"digiturk-yardim-merkezi","title":"Digiturk Yardım Merkezi","brand":"Digiturk","cover":{"name":"cover-digiturk-yardim-merkezi.jpg","src":"digiturk-yardim-merkezi/cover-digiturk-yardim-merkezi.webp","relPath":"digiturk-yardim-merkezi/cover-digiturk-yardim-merkezi.webp","mtime":1781902964010.2292,"birthtime":1781902964009.1814,"isCover":true,"width":200,"height":134},"images":[{"name":"1_o_digiturk_yardim_merkezi.jpg","src":"digiturk-yardim-merkezi/1_o_digiturk_yardim_merkezi.webp","relPath":"digiturk-yardim-merkezi/1_o_digiturk_yardim_merkezi.webp","mtime":1781823069308.1638,"birthtime":1781823069307.5706,"isCover":false,"width":72,"height":72},{"name":"2_o_digiturk_yardim_merkezi.jpg","src":"digiturk-yardim-merkezi/2_o_digiturk_yardim_merkezi.webp","relPath":"digiturk-yardim-merkezi/2_o_digiturk_yardim_merkezi.webp","mtime":1781823085090.1084,"birthtime":1781823085089.3071,"isCover":false,"width":72,"height":72},{"name":"3_o _digiturk_yardim_merkezi.jpg","src":"digiturk-yardim-merkezi/3_o%20_digiturk_yardim_merkezi.webp","relPath":"digiturk-yardim-merkezi/3_o _digiturk_yardim_merkezi.jpg","mtime":1781823090238.1045,"birthtime":1781823090236.4863,"isCover":false,"width":72,"height":72},{"name":"4_o_digiturk_yardim_merkezi.jpg","src":"digiturk-yardim-merkezi/4_o_digiturk_yardim_merkezi.webp","relPath":"digiturk-yardim-merkezi/4_o_digiturk_yardim_merkezi.webp","mtime":1781823095623.1316,"birthtime":1781823095622.3303,"isCover":false,"width":72,"height":72},{"name":"5_o_digiturk_yardim_merkezi.jpg","src":"digiturk-yardim-merkezi/5_o_digiturk_yardim_merkezi.webp","relPath":"digiturk-yardim-merkezi/5_o_digiturk_yardim_merkezi.webp","mtime":1781823101204.146,"birthtime":1781823101203.7349,"isCover":false,"width":72,"height":72},{"name":"6_o_digiturk_yardim_merkezi.jpg","src":"digiturk-yardim-merkezi/6_o_digiturk_yardim_merkezi.webp","relPath":"digiturk-yardim-merkezi/6_o_digiturk_yardim_merkezi.webp","mtime":1781823106170.1787,"birthtime":1781823106169.2327,"isCover":false,"width":72,"height":72},{"name":"7_o_digiturk_yardim_merkezi.jpg","src":"digiturk-yardim-merkezi/7_o_digiturk_yardim_merkezi.webp","relPath":"digiturk-yardim-merkezi/7_o_digiturk_yardim_merkezi.webp","mtime":1781823111691.2136,"birthtime":1781823111690.3289,"isCover":false,"width":72,"height":72}]},{"slug":"vestel-com-tr","title":"Vestel.com.tr","brand":"Vestel","cover":{"name":"cover-vestel-com-tr.png","src":"vestel-com-tr/cover-vestel-com-tr.webp","relPath":"vestel-com-tr/cover-vestel-com-tr.webp","mtime":1781906169784.921,"birthtime":1781906169784.4648,"isCover":true,"width":200,"height":134},"images":[{"name":"1_o_vestel.png","src":"vestel-com-tr/1_o_vestel.webp","relPath":"vestel-com-tr/1_o_vestel.webp","mtime":1781820575370.1707,"birthtime":1781820575369.8406,"isCover":false,"width":670,"height":744},{"name":"2_o_vestel.png","src":"vestel-com-tr/2_o_vestel.webp","relPath":"vestel-com-tr/2_o_vestel.webp","mtime":1781820584538.0776,"birthtime":1781820584536.4292,"isCover":false,"width":670,"height":744},{"name":"3_o_vestel.png","src":"vestel-com-tr/3_o_vestel.webp","relPath":"vestel-com-tr/3_o_vestel.webp","mtime":1781820592369.3035,"birthtime":1781820592367.4028,"isCover":false,"width":670,"height":871},{"name":"4_o_vestel.png","src":"vestel-com-tr/4_o_vestel.webp","relPath":"vestel-com-tr/4_o_vestel.webp","mtime":1781820597140.6782,"birthtime":1781820597139.9905,"isCover":false,"width":670,"height":545},{"name":"5_o_vestel.png","src":"vestel-com-tr/5_o_vestel.webp","relPath":"vestel-com-tr/5_o_vestel.webp","mtime":1781820601807.6353,"birthtime":1781820601807.3577,"isCover":false,"width":670,"height":828},{"name":"6_o_vestel.png","src":"vestel-com-tr/6_o_vestel.webp","relPath":"vestel-com-tr/6_o_vestel.webp","mtime":1781820606666.44,"birthtime":1781820606665.5427,"isCover":false,"width":670,"height":694},{"name":"7_o_vestel.png","src":"vestel-com-tr/7_o_vestel.webp","relPath":"vestel-com-tr/7_o_vestel.webp","mtime":1781820610787.7688,"birthtime":1781820610786.689,"isCover":false,"width":670,"height":554}]},{"slug":"elibol-hukuk","title":"Elibol Hukuk","brand":"Hukuk","cover":{"name":"cover-elibol-hukuk.png","src":"elibol-hukuk/cover-elibol-hukuk.webp","relPath":"elibol-hukuk/cover-elibol-hukuk.webp","isCover":true,"width":200,"height":134},"images":[{"name":"av-elibol-hukuk.png","src":"elibol-hukuk/av-elibol-hukuk.webp","relPath":"elibol-hukuk/av-elibol-hukuk.webp","isCover":false,"width":864,"height":2828}]},{"slug":"altinok-hukuk","title":"Altınok Hukuk","brand":"Hukuk","cover":{"name":"cover-altinok-hukuk.png","src":"altinok-hukuk/cover-altinok-hukuk.webp","relPath":"altinok-hukuk/cover-altinok-hukuk.webp","isCover":true,"width":200,"height":134},"images":[{"name":"av-altinok-hukuk.png","src":"altinok-hukuk/av-altinok-hukuk.webp","relPath":"altinok-hukuk/av-altinok-hukuk.webp","isCover":false,"width":864,"height":1452}]},{"slug":"kara-hukuk","title":"Kara Hukuk","brand":"Hukuk","cover":{"name":"cover-kara-hukuk.png","src":"kara-hukuk/cover-kara-hukuk.webp","relPath":"kara-hukuk/cover-kara-hukuk.webp","isCover":true,"width":200,"height":134},"images":[{"name":"av-kara-hukuk.png","src":"kara-hukuk/av-kara-hukuk.webp","relPath":"kara-hukuk/av-kara-hukuk.webp","isCover":false,"width":864,"height":3707}]},{"slug":"av-ali-haydar-delibas","title":"Av. Ali Haydar Delibaş","brand":"Hukuk","cover":{"name":"cover-alihaydar-delibas.png","src":"av-ali-haydar-delibas/cover-alihaydar-delibas.webp","relPath":"av-ali-haydar-delibas/cover-alihaydar-delibas.webp","isCover":true,"width":200,"height":134},"images":[{"name":"av-ali-haydar-delibas.png","src":"av-ali-haydar-delibas/av-ali-haydar-delibas.webp","relPath":"av-ali-haydar-delibas/av-ali-haydar-delibas.webp","isCover":false,"width":864,"height":3736}]},{"slug":"celik-hukuk","title":"Çelik Hukuk","brand":"Hukuk","cover":{"name":"cover-celik-hukuk.png","src":"celik-hukuk/cover-celik-hukuk.webp","relPath":"celik-hukuk/cover-celik-hukuk.webp","isCover":true,"width":200,"height":134},"images":[{"name":"av-burak-celik-celik-hukuk.png","src":"celik-hukuk/av-burak-celik-celik-hukuk.webp","relPath":"celik-hukuk/av-burak-celik-celik-hukuk.webp","isCover":false,"width":864,"height":2517}]},{"slug":"dogadayiz","title":"Doğadayız","brand":"Doğadayız","cover":{"name":"cover-dogadayiz.png","src":"dogadayiz/cover-dogadayiz.webp","relPath":"dogadayiz/cover-dogadayiz.webp","isCover":true,"width":200,"height":134},"images":[{"name":"dogadayiz.png","src":"dogadayiz/dogadayiz.webp","relPath":"dogadayiz/dogadayiz.webp","isCover":false,"width":1728,"height":6215}]},{"slug":"nunchi-kids-club","title":"Nunchi Kids Club","brand":"Nunchi Kids Club","cover":{"name":"cover-nunchi-kids-club.png","src":"nunchi-kids-club/cover-nunchi-kids-club.webp","relPath":"nunchi-kids-club/cover-nunchi-kids-club.webp","isCover":true,"width":200,"height":134},"images":[{"name":"nunchi-kids-club.png","src":"nunchi-kids-club/nunchi-kids-club.webp","relPath":"nunchi-kids-club/nunchi-kids-club.webp","isCover":false,"width":864,"height":3521}]},{"slug":"inovair","title":"İnovair","brand":"İnovair","cover":{"name":"cover-inovair.png","src":"inovair/cover-inovair.webp","relPath":"inovair/cover-inovair.webp","isCover":true,"width":200,"height":134},"images":[{"name":"inovair-iklimlendirme-havalandirma.png","src":"inovair/inovair-iklimlendirme-havalandirma.webp","relPath":"inovair/inovair-iklimlendirme-havalandirma.webp","isCover":false,"width":864,"height":5675}]}]</script>
+  <script>
+    (() => {
+      const projects = JSON.parse(document.getElementById('portfolioData').textContent);
+      const projectMap = new Map(projects.map((project) => [project.slug, project]));
+      const grid = document.getElementById('portfolioGrid');
+      const cards = Array.from(grid.querySelectorAll('.portfolio-card'));
+      const searchInput = document.getElementById('searchInput');
+      const emptyResults = document.getElementById('emptyResults');
+      const filterButtons = Array.from(document.querySelectorAll('[data-brand-filter]'));
+      const dialog = document.getElementById('projectDialog');
+      const closeDialog = document.getElementById('closeDialog');
+      const viewerBrand = document.getElementById('viewerBrand');
+      const viewerTitle = document.getElementById('viewerTitle');
+      const viewerMeta = document.getElementById('viewerMeta');
+      const viewerCover = document.getElementById('viewerCover');
+      const viewerStrip = document.getElementById('viewerStrip');
+      const imageStage = document.getElementById('imageStage');
+      const viewerMain = dialog.querySelector('.viewer-main');
+      let activeBrand = 'all';
+      let lastFocus = null;
+
+      function normalizeText(value) {
+        return value.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ı/g, 'i');
+      }
+
+      function applyFilters() {
+        const query = normalizeText(searchInput.value.trim());
+        let visible = 0;
+        cards.forEach((card) => {
+          const brand = card.dataset.brand;
+          const haystack = normalizeText(card.textContent || '');
+          const matchesBrand = activeBrand === 'all' || brand === activeBrand;
+          const matchesSearch = !query || haystack.includes(query);
+          const show = matchesBrand && matchesSearch;
+          card.classList.toggle('is-hidden', !show);
+          if (show) visible += 1;
+        });
+        emptyResults.classList.toggle('is-visible', visible === 0);
+      }
+
+      function imageTag(image, alt, extra = '') {
+        return '<img src="' + image.src + '" alt="' + alt.replace(/"/g, '&quot;') + '" width="' + (image.width || 800) + '" height="' + (image.height || 600) + '" ' + extra + '>';
+      }
+
+      function openProject(slug, trigger) {
+        const project = projectMap.get(slug);
+        if (!project) return;
+        lastFocus = trigger || document.activeElement;
+        viewerBrand.textContent = project.brand;
+        viewerTitle.textContent = project.title;
+        viewerMeta.innerHTML = '<span>' + project.images.length + ' ekran</span><span>' + project.brand + '</span>';
+        viewerCover.innerHTML = project.cover ? imageTag(project.cover, project.title + ' kapak görseli', 'loading="eager"') : '';
+        viewerStrip.innerHTML = project.images.map((image, index) => (
+          '<button class="thumb-button' + (index === 0 ? ' is-active' : '') + '" type="button" data-jump-image="image-' + index + '" aria-label="' + (index + 1) + '. görsele git">' +
+            imageTag(image, project.title + ' küçük görsel ' + (index + 1), 'loading="lazy"') +
+          '</button>'
+        )).join('');
+        imageStage.innerHTML = project.images.map((image, index) => (
+          '<figure class="stage-image" id="image-' + index + '">' +
+            imageTag(image, project.title + ' ekran ' + (index + 1), index === 0 ? 'loading="eager"' : 'loading="lazy"') +
+            '<figcaption>' + String(index + 1).padStart(2, '0') + ' / ' + project.images.length + '</figcaption>' +
+          '</figure>'
+        )).join('') || '<p>Bu proje için görüntü bulunamadı.</p>';
+        if (!dialog.open) dialog.showModal();
+        document.body.classList.add('body-lock');
+        viewerMain.scrollTop = 0;
+        closeDialog.focus();
+      }
+
+      function closeProject() {
+        if (dialog.open) dialog.close();
+        document.body.classList.remove('body-lock');
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeBrand = button.dataset.brandFilter;
+          filterButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', applyFilters);
+
+      grid.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-open-project]');
+        if (!button) return;
+        openProject(button.dataset.openProject, button);
+      });
+
+      viewerStrip.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-jump-image]');
+        if (!button) return;
+        viewerStrip.querySelectorAll('.thumb-button').forEach((item) => item.classList.toggle('is-active', item === button));
+        const target = document.getElementById(button.dataset.jumpImage);
+        if (target) target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+
+      closeDialog.addEventListener('click', closeProject);
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) closeProject();
+      });
+      dialog.addEventListener('close', () => document.body.classList.remove('body-lock'));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && dialog.open) closeProject();
+      });
+    })();
+  </script>
+</body>
+</html>

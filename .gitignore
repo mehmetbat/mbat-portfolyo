@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+**/.DS_Store
+
+# Claude Code
+.claude/
+
+# Source raster images (site WebP kullanıyor; orijinaller lokal yedek)
+*.jpg
+*.jpeg
+*.png
+
+# Arşiv paketleri
+*.zip
